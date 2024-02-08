@@ -1,3 +1,4 @@
+import Icon from '@components/Icon';
 import PageContent from '@components/PageContent';
 import {ThemeType} from '@providers/theme/context';
 import useTheme from '@providers/theme/useTheme';
@@ -11,6 +12,7 @@ export function SignIn() {
     <PageContent>
       <Text>SignIn</Text>
       <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
+      <Icon name="arrow-left" width={40} height={40} />
     </PageContent>
   );
 }
