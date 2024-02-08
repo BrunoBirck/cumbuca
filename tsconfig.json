@@ -15,6 +15,9 @@
       "@routes/*": [
         "src/routes/*"
       ],
+      "@services/*": [
+        "src/services/*"
+      ],
       "@theme/*": [
         "src/theme/*"
       ],
