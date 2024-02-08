@@ -1,3 +1,4 @@
+import { Badge } from '@components/Badge';
 import { Card } from '@components/Card';
 import { Icon } from '@components/Icon';
 import PageContent from '@components/PageContent';
@@ -20,6 +21,7 @@ export function SignIn() {
         <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
         <Icon name="arrow-left" width={40} height={40} />
       </Card>
+      <Badge text="Badge" />
     </PageContent>
   );
 }
