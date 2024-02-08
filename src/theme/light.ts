@@ -12,6 +12,7 @@ const Theme = {
     description: '#6D7199',
     disabled: '#AAAAAA',
     background: '#FCFCFC',
+    text: '#3F3F3F',
   },
   fontSizes: {
     sm: '12px',

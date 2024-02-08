@@ -13,6 +13,7 @@ declare module 'styled-components/native' {
       description: string;
       disabled: string;
       background: string;
+      text: string;
     };
     fontSizes: {
       sm: string;
