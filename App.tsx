@@ -5,9 +5,11 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  PixelRatio,
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import BootSplash from 'react-native-bootsplash';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -61,6 +64,13 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    async function bootsplash() {
+      await BootSplash.hide({fade: true});
+    }
+    bootsplash();
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -103,12 +113,14 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: '700',
+    fontFamily: 'Poppins-Semibold',
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    // fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
   },
   highlight: {
     fontWeight: '700',
