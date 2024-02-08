@@ -1,4 +1,5 @@
-import Icon from '@components/Icon';
+import { Card } from '@components/Card';
+import { Icon } from '@components/Icon';
 import PageContent from '@components/PageContent';
 import Typography from '@components/Typography';
 import {ThemeType} from '@providers/theme/context';
@@ -14,6 +15,11 @@ export function SignIn() {
       <Typography>SignIn</Typography>
       <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
       <Icon name="arrow-left" width={40} height={40} />
+      <Card>
+        <Typography>SignIn</Typography>
+        <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
+        <Icon name="arrow-left" width={40} height={40} />
+      </Card>
     </PageContent>
   );
 }

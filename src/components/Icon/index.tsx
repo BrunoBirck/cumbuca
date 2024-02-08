@@ -23,6 +23,7 @@ import signoutDark from '@assets/dark/signout.png';
 import trashDark from '@assets/dark/trash.png';
 import warningDark from '@assets/dark/warning.png';
 import logoDark from '@assets/light/logo.png';
+import {IIconProps} from './types';
 
 const lightIcons = {
   'arrow-left': arrowLeftLight,
@@ -50,29 +51,9 @@ const darkIcons = {
   logo: logoDark,
 };
 
-const Icon = ({
-  name,
-  width = 18,
-  height = 18,
-}: {
-  name:
-    | 'arrow-left'
-    | 'eye-close-error'
-    | 'eye-close'
-    | 'less'
-    | 'plus'
-    | 'settings'
-    | 'signout'
-    | 'trash'
-    | 'warning'
-    | 'logo';
-  width: number;
-  height: number;
-}) => {
+export function Icon({name, width = 18, height = 18}: IIconProps) {
   const {theme} = useTheme();
   const icon = theme === 'light' ? lightIcons[name] : darkIcons[name];
 
   return <Image source={icon} style={{width, height}} />;
-};
-
-export default Icon;
+}
