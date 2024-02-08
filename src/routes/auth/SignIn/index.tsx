@@ -1,16 +1,20 @@
-import { Badge } from '@components/Badge';
-import { Card } from '@components/Card';
-import { Icon } from '@components/Icon';
+import {Badge} from '@components/Badge';
+import {Card} from '@components/Card';
+import {ControlledInput} from '@components/ControlledInput';
+import {Icon} from '@components/Icon';
+import {Input} from '@components/Input';
 import PageContent from '@components/PageContent';
 import Typography from '@components/Typography';
 import {ThemeType} from '@providers/theme/context';
 import useTheme from '@providers/theme/useTheme';
 import React from 'react';
-import {Switch} from 'react-native';
+import {useForm} from 'react-hook-form';
+import {Keyboard, Pressable, Switch} from 'react-native';
 
 export function SignIn() {
   const {toggleTheme, theme} = useTheme();
   const darkModeIsEnabled = theme === ThemeType.dark;
+  const {control} = useForm();
   return (
     <PageContent>
       <Typography>SignIn</Typography>
@@ -22,6 +26,11 @@ export function SignIn() {
         <Icon name="arrow-left" width={40} height={40} />
       </Card>
       <Badge text="Badge" />
+      <Input errorText={'Error message'} label="Email" />
+      <ControlledInput label="Senha" name="password" control={control} />
+      <Pressable onPress={Keyboard.dismiss}>
+        <Typography>DISABLE KEYBOARD</Typography>
+      </Pressable>
     </PageContent>
   );
 }
