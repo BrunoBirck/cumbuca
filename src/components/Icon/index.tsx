@@ -11,6 +11,7 @@ import settingsLight from '@assets/light/settings.png';
 import signoutLight from '@assets/light/signout.png';
 import trashLight from '@assets/light/trash.png';
 import warningLight from '@assets/light/warning.png';
+import logoLight from '@assets/light/logo.png';
 
 import arrowLeftDark from '@assets/dark/arrow-left.png';
 import eyeCloseErrorDark from '@assets/dark/eye-close-error.png';
@@ -21,6 +22,7 @@ import settingsDark from '@assets/dark/settings.png';
 import signoutDark from '@assets/dark/signout.png';
 import trashDark from '@assets/dark/trash.png';
 import warningDark from '@assets/dark/warning.png';
+import logoDark from '@assets/light/logo.png';
 
 const lightIcons = {
   'arrow-left': arrowLeftLight,
@@ -32,6 +34,7 @@ const lightIcons = {
   signout: signoutLight,
   trash: trashLight,
   warning: warningLight,
+  logo: logoLight,
 };
 
 const darkIcons = {
@@ -44,6 +47,7 @@ const darkIcons = {
   signout: signoutDark,
   trash: trashDark,
   warning: warningDark,
+  logo: logoDark,
 };
 
 const Icon = ({
@@ -60,7 +64,8 @@ const Icon = ({
     | 'settings'
     | 'signout'
     | 'trash'
-    | 'warning';
+    | 'warning'
+    | 'logo';
   width: number;
   height: number;
 }) => {
