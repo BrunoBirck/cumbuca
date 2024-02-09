@@ -23,8 +23,11 @@ export function ProductList() {
     React.useState<IProduct[]>(productsFromStorage);
 
   useEffect(() => {
-    const listener = storage.addOnValueChangedListener((value) => {
-      console.log('value', value);
+    const listener = storage.addOnValueChangedListener(value => {
+      if (value) {
+        const getNewArrayOfProducts = productsByUser();
+        setProducts(getNewArrayOfProducts);
+      }
     });
     return () => {
       listener.remove();
@@ -68,7 +71,11 @@ export function ProductList() {
           data={products}
           keyExtractor={item => JSON.stringify(item.id)}
           renderItem={({item}) => <ProductCard product={item} />}
-          contentContainerStyle={{gap: theme.spacersRaw['sm-3']}}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            gap: theme.spacersRaw['sm-3'],
+            paddingBottom: 360,
+          }}
         />
       </S.Box>
       <S.ButtonAbsolute>

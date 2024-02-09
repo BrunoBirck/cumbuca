@@ -7,6 +7,7 @@ import {useTheme} from 'styled-components/native';
 import * as S from './styles';
 import {IProduct} from 'src/types/Product';
 import {formatMoney} from '@utils/formatMoney';
+import {removeProduct} from '@services/storage';
 
 export function ProductCard({product}: {product: IProduct}) {
   const theme = useTheme();
@@ -52,7 +53,9 @@ export function ProductCard({product}: {product: IProduct}) {
           </S.Column>
         </S.Box>
         <S.TrashBox>
-          <TouchableOpacity activeOpacity={0.8}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => removeProduct(product.id)}>
             <Icon name="trash" width={24} height={24} />
           </TouchableOpacity>
         </S.TrashBox>

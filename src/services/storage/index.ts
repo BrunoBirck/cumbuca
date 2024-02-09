@@ -161,3 +161,17 @@ export const verifyProductExistsByName = (name: string): boolean => {
   const products = productsByUser();
   return products.some(product => product.name === name);
 };
+
+export const removeProduct = (productId: number) => {
+  const cpf = getItem(APP_SIGNED_USER);
+  const user = getUser(cpf);
+  const productIndex = user.products.findIndex(
+    product => product.id === productId,
+  );
+  if (productIndex > -1) {
+    user.products.splice(productIndex, 1);
+    setItem(cpf, user);
+    return true;
+  }
+  return false;
+};
