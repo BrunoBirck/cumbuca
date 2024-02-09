@@ -1,4 +1,5 @@
 import {Badge} from '@components/Badge';
+import Button from '@components/Button';
 import {Card} from '@components/Card';
 import {ControlledInput} from '@components/ControlledInput';
 import {Icon} from '@components/Icon';
@@ -31,6 +32,7 @@ export function SignIn() {
       <Pressable onPress={Keyboard.dismiss}>
         <Typography>DISABLE KEYBOARD</Typography>
       </Pressable>
+      <Button label="Entrar" variant="primary-rounded" />
     </PageContent>
   );
 }
