@@ -6,11 +6,15 @@ import {useTheme} from 'styled-components/native';
 import {Icon} from '@components/Icon';
 import {Input} from '@components/Input';
 import {Badge} from '@components/Badge';
-import { ProductCard } from './components/ProductCard';
-import { Button } from '@components/Button';
+import {ProductCard} from './components/ProductCard';
+import {Button} from '@components/Button';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {AppStack} from '..';
 
 export function ProductList() {
   const theme = useTheme();
+  const navigation = useNavigation<NavigationProp<AppStack>>();
+
   return (
     <PageContent>
       <S.Container>
@@ -21,7 +25,9 @@ export function ProductList() {
               Bem-vindo ao app!
             </Typography>
           </S.HelloBox>
-          <S.SettingsButton activeOpacity={0.8}>
+          <S.SettingsButton
+            onPress={() => navigation.navigate('settings')}
+            activeOpacity={0.8}>
             <Icon name="settings" width={24} height={24} />
           </S.SettingsButton>
         </S.Header>
@@ -45,7 +51,12 @@ export function ProductList() {
       <ProductCard />
       <ProductCard />
       <S.ButtonAbsolute>
-        <Button variant="primary-rounded" label="Produto" icon="plus" width="154px" />
+        <Button
+          variant="primary-rounded"
+          label="Produto"
+          icon="plus"
+          width="154px"
+        />
       </S.ButtonAbsolute>
     </PageContent>
   );
