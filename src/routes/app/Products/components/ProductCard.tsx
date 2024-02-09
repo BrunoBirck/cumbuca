@@ -5,8 +5,10 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {useTheme} from 'styled-components/native';
 import * as S from './styles';
+import {IProduct} from 'src/types/Product';
+import {formatMoney} from '@utils/formatMoney';
 
-export function ProductCard() {
+export function ProductCard({product}: {product: IProduct}) {
   const theme = useTheme();
   return (
     <Card>
@@ -16,19 +18,21 @@ export function ProductCard() {
             <Typography variant="sm" semibold color={theme.colors.primary}>
               ID:
             </Typography>
-            <Typography variant="sm">1</Typography>
+            <Typography variant="sm">{product?.id}</Typography>
           </S.Row>
           <S.Column>
             <Typography variant="sm" semibold color={theme.colors.primary}>
               Nome:
             </Typography>
-            <Typography variant="sm">Nome do produto 1</Typography>
+            <Typography variant="sm" numberOfLines={1}>
+              {product?.name}
+            </Typography>
           </S.Column>
           <S.Column>
             <Typography variant="sm" semibold color={theme.colors.primary}>
               Quantidade:
             </Typography>
-            <Typography variant="sm">200</Typography>
+            <Typography variant="sm">{product?.quantity}</Typography>
           </S.Column>
         </S.BoxWithGap>
         <S.Box>
@@ -36,13 +40,15 @@ export function ProductCard() {
             <Typography variant="sm" semibold color={theme.colors.primary}>
               Valor unitário:
             </Typography>
-            <Typography variant="sm">R$500,00</Typography>
+            <Typography variant="sm">
+              {formatMoney(product?.unityPrice)}
+            </Typography>
           </S.ColumnWithFlex>
           <S.Column>
             <Typography variant="sm" semibold color={theme.colors.primary}>
               Valor total:
             </Typography>
-            <Typography variant="sm">R$100.000,00</Typography>
+            <Typography variant="sm">{formatMoney(product?.total)}</Typography>
           </S.Column>
         </S.Box>
         <S.TrashBox>

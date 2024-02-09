@@ -1,5 +1,5 @@
 import PageContent from '@components/PageContent';
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as S from './styles';
 import Typography from '@components/Typography';
 import {useTheme} from 'styled-components/native';
@@ -10,10 +10,26 @@ import {ProductCard} from './components/ProductCard';
 import {Button} from '@components/Button';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '..';
+import {IProduct} from 'src/types/Product';
+import {productsByUser, storage} from '@services/storage';
+import {FlatList} from 'react-native-gesture-handler';
 
 export function ProductList() {
   const theme = useTheme();
   const navigation = useNavigation<NavigationProp<AppStack>>();
+  const productsFromStorage = productsByUser();
+
+  const [products, setProducts] =
+    React.useState<IProduct[]>(productsFromStorage);
+
+  useEffect(() => {
+    const listener = storage.addOnValueChangedListener((value) => {
+      console.log('value', value);
+    });
+    return () => {
+      listener.remove();
+    };
+  }, []);
 
   return (
     <PageContent>
@@ -47,9 +63,14 @@ export function ProductList() {
           </S.Box>
         </S.Filters>
       </S.Container>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      <S.Box>
+        <FlatList
+          data={products}
+          keyExtractor={item => JSON.stringify(item.id)}
+          renderItem={({item}) => <ProductCard product={item} />}
+          contentContainerStyle={{gap: theme.spacersRaw['sm-3']}}
+        />
+      </S.Box>
       <S.ButtonAbsolute>
         <Button
           variant="primary-rounded"

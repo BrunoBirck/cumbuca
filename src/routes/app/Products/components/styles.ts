@@ -17,9 +17,10 @@ export const BoxWithGap = styled(Box)`
 `;
 
 export const TrashBox = styled.View`
-  width: 6%;
+  width: 4%;
   justify-content: center;
   align-items: center;
+  padding-right: 12px;
 `;
 
 export const Column = styled.View``;
@@ -30,4 +31,5 @@ export const ColumnWithFlex = styled.View`
 
 export const Row = styled.View`
   flex-direction: row;
+  gap: 4px;
 `;
