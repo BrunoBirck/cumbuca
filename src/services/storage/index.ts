@@ -1,4 +1,5 @@
 import {MMKV} from 'react-native-mmkv';
+import {IUser} from 'src/types/User';
 
 export const storage = new MMKV();
 
@@ -35,5 +36,44 @@ export const removeItem = (key: string) => {
     } catch (error) {
       throw new Error(`[Error removing ${key}]: ${error}`);
     }
+  }
+};
+
+export const getAllKeys = () => {
+  try {
+    return storage.getAllKeys();
+  } catch (error) {
+    throw new Error(`[Error getting all keys]: ${error}`);
+  }
+};
+
+const getCurrentDate = () => {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  return `${day}/${month}/${year}`;
+};
+
+export const verifyUserCredentials = (
+  cpf: string,
+  password: string,
+): IUser | Error => {
+  let user = getItem(cpf);
+  if (user) {
+    if (user.password !== password) {
+      throw new Error('Credenciais inválidas');
+    }
+    user.lastAccess = getCurrentDate();
+    setItem(cpf, user);
+    return user;
+  } else {
+    user = {
+      cpf,
+      password,
+      lastAccess: getCurrentDate(),
+    };
+    setItem(cpf, user);
+    return user;
   }
 };

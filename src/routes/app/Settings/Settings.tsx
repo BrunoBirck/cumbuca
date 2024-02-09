@@ -7,9 +7,11 @@ import {useTheme} from 'styled-components/native';
 import {Button} from '@components/Button';
 import {PageHeader} from '@components/PageHeader';
 import useThemeProvider from '@providers/theme/useTheme';
+import useAuth from '@providers/authorization/useAuth';
 
 export function Settings() {
   const theme = useTheme();
+  const {signOut} = useAuth();
   const {toggleTheme, theme: themeProvider} = useThemeProvider();
   const isDarkMode = useMemo(() => themeProvider === 'dark', [themeProvider]);
   return (
@@ -30,7 +32,7 @@ export function Settings() {
         </S.Box>
       </S.Container>
       <S.Box>
-        <Button label="Sair" variant="danger" />
+        <Button label="Sair" variant="danger" onPress={signOut} />
       </S.Box>
     </PageContent>
   );

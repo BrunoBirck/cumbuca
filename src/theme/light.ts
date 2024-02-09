@@ -13,6 +13,7 @@ const Theme = {
     disabled: '#AAAAAA',
     background: '#FCFCFC',
     text: '#3F3F3F',
+    success: '#6cc070',
   },
   fontSizes: {
     sm: '12px',

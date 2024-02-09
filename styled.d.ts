@@ -14,6 +14,7 @@ declare module 'styled-components/native' {
       disabled: string;
       background: string;
       text: string;
+      success: string;
     };
     fontSizes: {
       sm: string;

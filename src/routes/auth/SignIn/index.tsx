@@ -10,11 +10,23 @@ import {KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
 import * as yup from 'yup';
 import {ISignInPutForm} from './types';
 import {yupResolver} from '@hookform/resolvers/yup';
+import useAuth from '@providers/authorization/useAuth';
+import {formatCPF, isValidCpf} from '@utils/validateCpf';
+import {useToast} from '@providers/toast/useToast';
 
 export function SignIn() {
+  const {signIn, loading} = useAuth();
+  const {show} = useToast();
   const schema = yup.object({
-    cpf: yup.string().required('Campo obrigatório'),
-    password: yup.string().required('Campo obrigatório'),
+    cpf: yup
+      .string()
+      .required('Campo obrigatório')
+      .min(14, 'O CPF deve ter 11 dígitos')
+      .test('CPF válido', 'CPF inválido', value => isValidCpf(value)),
+    password: yup
+      .string()
+      .required('Campo obrigatório')
+      .min(8, 'A senha precisa ter no mínimo 8 dígitos'),
   });
   const {
     control,
@@ -23,9 +35,22 @@ export function SignIn() {
   } = useForm<ISignInPutForm>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = useCallback((data: ISignInPutForm) => {
-    console.log(data);
-  }, []);
+  const onSubmit = useCallback(
+    async (data: ISignInPutForm) => {
+      try {
+        const response = await signIn(data.cpf, data.password);
+        if (response instanceof Error) {
+          throw new Error(response.message);
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          show(error.message, 'error');
+        }
+      }
+    },
+    [show, signIn],
+  );
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -55,6 +80,7 @@ export function SignIn() {
                 control={control}
                 name="cpf"
                 label="CPF"
+                maskFunction={formatCPF}
               />
               <ControlledInput
                 secureTextEntry
@@ -68,6 +94,7 @@ export function SignIn() {
               <Button
                 label="Entrar"
                 icon="signout"
+                loading={loading}
                 onPress={handleSubmit(onSubmit)}
               />
             </S.BoxCentered>

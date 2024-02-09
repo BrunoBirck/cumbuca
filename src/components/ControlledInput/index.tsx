@@ -11,6 +11,7 @@ export function ControlledInput({
   control,
   name,
   errors,
+  maskFunction,
   ...rest
 }: IControlledInputProps) {
   const theme = useTheme();
@@ -23,7 +24,9 @@ export function ControlledInput({
           <Input
             {...rest}
             onBlur={onBlur}
-            onChangeText={onChange}
+            onChangeText={text =>
+              onChange(maskFunction ? maskFunction(text) : text)
+            }
             value={value}
             errorText={errors?.message}
             error={!!errors}
