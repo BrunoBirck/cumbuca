@@ -33,3 +33,10 @@ export const Row = styled.View`
   flex-direction: row;
   gap: 4px;
 `;
+
+export const BoxForQuantity = styled.View`
+  width: 60%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;

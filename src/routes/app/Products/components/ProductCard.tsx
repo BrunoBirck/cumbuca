@@ -2,12 +2,12 @@ import {Card} from '@components/Card';
 import {Icon} from '@components/Icon';
 import Typography from '@components/Typography';
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {Pressable, TouchableOpacity} from 'react-native';
 import {useTheme} from 'styled-components/native';
 import * as S from './styles';
 import {IProduct} from 'src/types/Product';
 import {formatMoney} from '@utils/formatMoney';
-import {removeProduct} from '@services/storage';
+import {removeProduct, updateProductQuantity} from '@services/storage';
 
 export function ProductCard({product}: {product: IProduct}) {
   const theme = useTheme();
@@ -33,7 +33,17 @@ export function ProductCard({product}: {product: IProduct}) {
             <Typography variant="sm" semibold color={theme.colors.primary}>
               Quantidade:
             </Typography>
-            <Typography variant="sm">{product?.quantity}</Typography>
+            <S.BoxForQuantity>
+              <Pressable
+                onPress={() => updateProductQuantity(product.id, 'less')}>
+                <Icon name="less" width={24} height={24} />
+              </Pressable>
+              <Typography variant="sm">{product?.quantity}</Typography>
+              <Pressable
+                onPress={() => updateProductQuantity(product.id, 'sum')}>
+                <Icon name="plus" width={24} height={24} />
+              </Pressable>
+            </S.BoxForQuantity>
           </S.Column>
         </S.BoxWithGap>
         <S.Box>
