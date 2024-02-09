@@ -6,7 +6,7 @@ import {ActivityIndicator} from 'react-native';
 import React from 'react';
 import {Icon} from '@components/Icon';
 
-export default function Button({
+export function Button({
   label,
   loading,
   icon,

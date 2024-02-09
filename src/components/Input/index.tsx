@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {TextInput, TouchableWithoutFeedback} from 'react-native';
 import {
   Easing,
@@ -11,13 +11,19 @@ import {
 import * as S from './styles';
 import {IInputProps} from './types';
 import {Icon} from '@components/Icon';
-import Typography from '@components/Typography';
-import {useTheme} from 'styled-components/native';
 
 export function Input(props: IInputProps) {
-  const theme = useTheme();
-  const {label, errorText, value, onBlur, onFocus, ...restOfProps} = props;
+  const {
+    label,
+    errorText,
+    value,
+    onBlur,
+    onFocus,
+    secureTextEntry,
+    ...restOfProps
+  } = props;
   const [isFocused, setIsFocused] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const inputRef = useRef<typeof S.StyledTextInput>(null);
   const focusAnim = useSharedValue(0);
@@ -60,6 +66,19 @@ export function Input(props: IInputProps) {
     };
   });
 
+  const iconName = useMemo(() => {
+    if (errorText && showPassword) {
+      return 'eye-close-error';
+    }
+    if (errorText && !showPassword) {
+      return 'eye-open-error';
+    }
+    if (showPassword) {
+      return 'eye-close';
+    }
+    return 'eye-open';
+  }, [errorText, showPassword]);
+
   return (
     <S.Container>
       <S.StyledTextInput
@@ -74,25 +93,26 @@ export function Input(props: IInputProps) {
           setIsFocused(true);
           onFocus?.(event);
         }}
-        error={!!errorText}
+        error={!!restOfProps.error}
         isFocused={isFocused}
+        secureTextEntry={secureTextEntry && !showPassword}
       />
+      {secureTextEntry && (
+        <TouchableWithoutFeedback
+          onPress={() => setShowPassword(!showPassword)}>
+          <S.IconContainer>
+            <Icon name={iconName} width={24} height={24} />
+          </S.IconContainer>
+        </TouchableWithoutFeedback>
+      )}
       <TouchableWithoutFeedback
         onPress={() => (inputRef.current as TextInput | null)?.focus()}>
         <S.LabelContainer style={animatedStyle}>
-          <S.StyledLabel error={!!errorText} isFocused={isFocused}>
+          <S.StyledLabel error={!!restOfProps.error} isFocused={isFocused}>
             {label}
           </S.StyledLabel>
         </S.LabelContainer>
       </TouchableWithoutFeedback>
-      {!!errorText && (
-        <S.ErrorContainer>
-          <Icon name="warning" width={18} height={18} />
-          <Typography variant="sm" color={theme.colors.error}>
-            {errorText}
-          </Typography>
-        </S.ErrorContainer>
-      )}
     </S.Container>
   );
 }

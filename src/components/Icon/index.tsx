@@ -5,6 +5,8 @@ import {Image} from 'react-native';
 import arrowLeftLight from '@assets/light/arrow-left.png';
 import eyeCloseErrorLight from '@assets/light/eye-close-error.png';
 import eyeCloseLight from '@assets/light/eye-close.png';
+import eyeOpenErrorLight from '@assets/light/eye-open-error.png';
+import eyeOpenLight from '@assets/light/eye-open.png';
 import lessErrorLight from '@assets/light/less.png';
 import plusLight from '@assets/light/plus.png';
 import settingsLight from '@assets/light/settings.png';
@@ -16,6 +18,8 @@ import logoLight from '@assets/light/logo.png';
 import arrowLeftDark from '@assets/dark/arrow-left.png';
 import eyeCloseErrorDark from '@assets/dark/eye-close-error.png';
 import eyeCloseDark from '@assets/dark/eye-close.png';
+import eyeOpenErrorDark from '@assets/dark/eye-open-error.png';
+import eyeOpenDark from '@assets/dark/eye-open.png';
 import lessErroDark from '@assets/dark/less.png';
 import plusDark from '@assets/dark/plus.png';
 import settingsDark from '@assets/dark/settings.png';
@@ -29,6 +33,8 @@ const lightIcons = {
   'arrow-left': arrowLeftLight,
   'eye-close-error': eyeCloseErrorLight,
   'eye-close': eyeCloseLight,
+  'eye-open-error': eyeOpenErrorLight,
+  'eye-open': eyeOpenLight,
   less: lessErrorLight,
   plus: plusLight,
   settings: settingsLight,
@@ -42,6 +48,8 @@ const darkIcons = {
   'arrow-left': arrowLeftDark,
   'eye-close-error': eyeCloseErrorDark,
   'eye-close': eyeCloseDark,
+  'eye-open-error': eyeOpenErrorDark,
+  'eye-open': eyeOpenDark,
   less: lessErroDark,
   plus: plusDark,
   settings: settingsDark,

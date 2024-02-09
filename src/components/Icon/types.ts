@@ -2,9 +2,15 @@ export enum IconName {
   'arrow-left',
   'eye-close-error',
   'eye-close',
-  'less',
-  'plus',
-  'settings',
+  'eye-open-error',
+  'eye-open',
+  less,
+  plus,
+  settings,
+  signout,
+  trash,
+  warning,
+  logo,
 }
 
 export interface IIconProps {

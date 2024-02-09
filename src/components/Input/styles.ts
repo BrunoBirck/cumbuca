@@ -13,6 +13,7 @@ export const StyledTextInput = styled.TextInput<{
   padding: 16px;
   border-bottom-width: 2px;
   font-family: 'Poppins-Semibold';
+  font-weight: ${props => props.theme.fontWeights.semibold};
   font-size: 16px;
   border-color: ${props =>
     props.error
@@ -29,6 +30,7 @@ export const LabelContainer = styled(Animated.View)`
 
 export const StyledLabel = styled.Text<{error?: boolean; isFocused?: boolean}>`
   font-family: 'Poppins-Semibold';
+  font-weight: ${props => props.theme.fontWeights.semibold};
   font-size: 16px;
   color: ${props =>
     props.error
@@ -44,11 +46,13 @@ export const ErrorText = styled.Text`
   font-size: 12px;
   color: ${props => props.theme.colors.error};
   font-family: 'Poppins-Semibold';
+  font-weight: ${props => props.theme.fontWeights.semibold};
 `;
 
-export const ErrorContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+export const IconContainer = styled.View`
+  position: absolute;
+  top: 25%;
+  right: 12px;
+  padding: 10px;
+  z-index: 1;
 `;
