@@ -57,7 +57,7 @@ export const ButtonAbsolute = styled.View`
 
 export const FormWrapper = styled.View`
   width: 100%;
-  gap: ${({theme}) => theme.spacers['sm-3']};
+  gap: ${({theme}) => theme.spacers['md-3']};
   padding-top: ${({theme}) => theme.spacers['lg-1']};
 `;
 
