@@ -3,7 +3,7 @@ import AuthContext, {User} from './context';
 
 export const AuthProvider = ({children}: {children: React.ReactNode}) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   async function signIn(cpf: string, password: string) {}
 
@@ -13,7 +13,7 @@ export const AuthProvider = ({children}: {children: React.ReactNode}) => {
 
   return (
     <AuthContext.Provider
-      value={{signed: !!user, user, loading, signIn, signOut}}>
+      value={{signed: true, user, loading, signIn, signOut}}>
       {children}
     </AuthContext.Provider>
   );

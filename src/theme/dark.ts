@@ -30,6 +30,16 @@ const Theme = {
     'lg-1': '36px',
     'lg-2': '44px',
   },
+  spacersRaw: {
+    'sm-1': 4,
+    'sm-2': 8,
+    'sm-3': 12,
+    'md-1': 16,
+    'md-2': 20,
+    'md-3': 24,
+    'lg-1': 36,
+    'lg-2': 44,
+  },
   fontFamilies: {
     regular: 'Poppins-Regular',
     semibold: 'Poppins-Semibold',

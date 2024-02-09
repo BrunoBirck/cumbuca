@@ -31,6 +31,16 @@ declare module 'styled-components/native' {
       'lg-1': string;
       'lg-2': string;
     };
+    spacersRaw: {
+      'sm-1': number;
+      'sm-2': number;
+      'sm-3': number;
+      'md-1': number;
+      'md-2': number;
+      'md-3': number;
+      'lg-1': number;
+      'lg-2': number;
+    };
     fontFamilies: {
       regular: string;
       semibold: string;
