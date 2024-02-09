@@ -76,6 +76,7 @@ export const verifyUserCredentials = (
       lastAccess: getCurrentDate(),
     };
     setItem(cpf, user);
+    setItem(APP_SIGNED_USER, cpf);
     return user;
   }
 };

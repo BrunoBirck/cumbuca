@@ -6,7 +6,7 @@ import Typography from '@components/Typography';
 import React, {useCallback} from 'react';
 import {useForm} from 'react-hook-form';
 import * as S from './styles';
-import {KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import {Keyboard, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
 import * as yup from 'yup';
 import {ISignInPutForm} from './types';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -42,6 +42,7 @@ export function SignIn() {
   });
   const onSubmit = useCallback(
     async (data: ISignInPutForm) => {
+      Keyboard.dismiss();
       try {
         const response = await signIn(data.cpf, data.password);
         if (response instanceof Error) {
@@ -57,6 +58,7 @@ export function SignIn() {
   );
 
   const handleVerifyBiometrics = useCallback(async () => {
+    Keyboard.dismiss();
     const cpf = getValues('cpf');
     const user = getUser(cpf);
     if (user?.isBiometricActive) {

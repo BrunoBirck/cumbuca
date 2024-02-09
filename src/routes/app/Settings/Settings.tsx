@@ -48,14 +48,14 @@ export function Settings() {
         });
 
         if (success) {
-          await updateBiometrics(true);
+          return await updateBiometrics(true);
         } else {
           show('Não foi possível ativar a biometria', 'error');
           setIsBiometricsActive(false);
-          await updateBiometrics(false);
+          return await updateBiometrics(false);
         }
       } else {
-        await updateBiometrics(false);
+        return await updateBiometrics(false);
       }
     } catch (error) {
       show('Não foi possível ativar a biometria', 'error');

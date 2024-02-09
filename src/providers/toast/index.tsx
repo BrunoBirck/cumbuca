@@ -4,6 +4,7 @@ import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
 import Typography from '@components/Typography';
 import {useTheme} from 'styled-components/native';
 import {ToastContext, ToastContextProps, ToastProps} from './context';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export function ToastProvider({children}: {children: React.ReactNode}) {
   const [toast, setToast] = useState<ToastProps | null>(null);
@@ -29,6 +30,8 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
     setToast({message, variant});
   };
 
+  const insets = useSafeAreaInsets();
+
   const getStyles = (): ViewStyle => {
     const baseStyles: ViewStyle = {
       position: 'absolute',
@@ -36,7 +39,8 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
       left: 0,
       right: 0,
       zIndex: 999,
-      paddingVertical: theme.spacersRaw['md-2'],
+      paddingTop: insets.top + theme.spacersRaw['sm-3'],
+      paddingBottom: theme.spacersRaw['md-1'],
       paddingHorizontal: theme.spacersRaw['md-1'],
       justifyContent: 'flex-end',
       alignItems: 'center',
