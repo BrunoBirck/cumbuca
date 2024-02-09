@@ -1,27 +1,18 @@
 import PageContent from '@components/PageContent';
 import React from 'react';
-import {Pressable, View} from 'react-native';
 import * as S from './styles';
-import {Icon} from '@components/Icon';
 import Typography from '@components/Typography';
 import {Switch} from '@components/Switch';
 import {useTheme} from 'styled-components/native';
 import {Button} from '@components/Button';
+import {PageHeader} from '@components/PageHeader';
 
 export function Settings() {
   const theme = useTheme();
   return (
     <PageContent>
       <S.Container>
-        <S.Header>
-          <Pressable>
-            <Icon name="arrow-left" width={32} height={32} />
-          </Pressable>
-          <Typography variant="lg" semibold>
-            Configurações
-          </Typography>
-          <View />
-        </S.Header>
+        <PageHeader title="Configurações" />
         <S.Box>
           <Typography semibold color={theme.colors.placeholder}>
             Modo escuro

@@ -33,7 +33,7 @@ export const Filters = styled.View`
   gap: ${({theme}) => theme.spacers['md-1']};
 `;
 
-export const OrderBy = styled(HelloBox)`
+export const Box = styled(HelloBox)`
   width: 100%;
 `;
 
@@ -53,4 +53,20 @@ export const ButtonAbsolute = styled.View`
   bottom: 44px;
   padding: ${({theme}) => theme.spacers['sm-1']};
   z-index: 1;
+`;
+
+export const FormWrapper = styled.View`
+  width: 100%;
+  gap: ${({theme}) => theme.spacers['sm-3']};
+  padding-top: ${({theme}) => theme.spacers['lg-1']};
+`;
+
+export const ProductPutContainer = styled(HelloBox)`
+  width: 100%;
+  flex: 1;
+`;
+
+export const Footer = styled(HelloBox)`
+  width: 100%;
+  padding-bottom: ${({theme}) => theme.spacers['md-3']};
 `;

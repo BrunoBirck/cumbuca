@@ -33,7 +33,7 @@ export function ProductList() {
         </S.Header>
         <S.Filters>
           <Input label="Pesquisar produtos" />
-          <S.OrderBy>
+          <S.Box>
             <Typography semibold color={theme.colors.placeholder}>
               Ordenar por:
             </Typography>
@@ -44,7 +44,7 @@ export function ProductList() {
               <Badge text="Valor unitário" />
               <Badge text="Valor total" />
             </S.ProductOrderByList>
-          </S.OrderBy>
+          </S.Box>
         </S.Filters>
       </S.Container>
       <ProductCard />
@@ -56,6 +56,7 @@ export function ProductList() {
           label="Produto"
           icon="plus"
           width="154px"
+          onPress={() => navigation.navigate('product-put')}
         />
       </S.ButtonAbsolute>
     </PageContent>
