@@ -5,12 +5,13 @@ import {ControlledInput} from '@components/ControlledInput';
 import {Icon} from '@components/Icon';
 import {Input} from '@components/Input';
 import PageContent from '@components/PageContent';
+import { Switch } from '@components/Switch';
 import Typography from '@components/Typography';
 import {ThemeType} from '@providers/theme/context';
 import useTheme from '@providers/theme/useTheme';
 import React from 'react';
 import {useForm} from 'react-hook-form';
-import {Keyboard, Pressable, Switch} from 'react-native';
+import {Keyboard, Pressable} from 'react-native';
 
 export function SignIn() {
   const {toggleTheme, theme} = useTheme();
@@ -23,7 +24,7 @@ export function SignIn() {
       <Icon name="arrow-left" width={40} height={40} />
       <Card>
         <Typography>SignIn</Typography>
-        <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
+        <Switch value={false} onValueChange={toggleTheme} />
         <Icon name="arrow-left" width={40} height={40} />
       </Card>
       <Badge text="Badge" />

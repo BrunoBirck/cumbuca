@@ -5,16 +5,19 @@ import {Providers} from './Providers';
 import {Routes} from './routes';
 import BootSplash from 'react-native-bootsplash';
 import {StatusBar} from 'react-native';
-import useTheme from '@providers/theme/useTheme';
+import useThemeProvider from '@providers/theme/useTheme';
 import {ThemeType} from '@providers/theme/context';
+import {useTheme} from 'styled-components/native';
 
 function AppContent() {
-  const {theme} = useTheme();
+  const {theme} = useThemeProvider();
+  const {colors} = useTheme();
   const darkModeIsEnabled = theme === ThemeType.dark;
   return (
     <NavigationContainer>
       <StatusBar
         barStyle={darkModeIsEnabled ? 'light-content' : 'dark-content'}
+        backgroundColor={darkModeIsEnabled ? colors.black : colors.white}
       />
       <Routes />
     </NavigationContainer>
