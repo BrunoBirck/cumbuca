@@ -1,10 +1,9 @@
-// context.tsx
 import React, {useState, useEffect, useMemo} from 'react';
 import {ViewStyle} from 'react-native';
 import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
 import Typography from '@components/Typography';
 import {useTheme} from 'styled-components/native';
-import { ToastContext, ToastContextProps, ToastProps } from './context';
+import {ToastContext, ToastContextProps, ToastProps} from './context';
 
 export function ToastProvider({children}: {children: React.ReactNode}) {
   const [toast, setToast] = useState<ToastProps | null>(null);

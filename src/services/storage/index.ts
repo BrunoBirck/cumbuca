@@ -1,5 +1,6 @@
 import {MMKV} from 'react-native-mmkv';
 import {IUser} from 'src/types/User';
+import {APP_SIGNED_USER} from './keys';
 
 export const storage = new MMKV();
 
@@ -66,6 +67,7 @@ export const verifyUserCredentials = (
     }
     user.lastAccess = getCurrentDate();
     setItem(cpf, user);
+    setItem(APP_SIGNED_USER, cpf);
     return user;
   } else {
     user = {
@@ -76,4 +78,8 @@ export const verifyUserCredentials = (
     setItem(cpf, user);
     return user;
   }
+};
+
+export const getUser = (cpf: string): IUser => {
+  return getItem(cpf);
 };

@@ -13,9 +13,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		292C175C46A045EFA72B46A9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A870ABA038FC47F1A6A1B568 /* Poppins-SemiBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A161C066609D6979FB45BBAE /* libPods-cumbuca.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABE71EA5B8448CEC4286EE0 /* libPods-cumbuca.a */; };
+		AB0369F4D23693F3841D8F08 /* libPods-cumbuca-cumbucaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A07681E82DEFC5693FC8D4F0 /* libPods-cumbuca-cumbucaTests.a */; };
 		ADC506944F5B41FB9386D83B /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 310B9BA8C98C4F608E2CC021 /* Poppins-Regular.ttf */; };
-		B7A3182DC41382264F58F890 /* libPods-cumbuca-cumbucaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83CAED2A6E74F83637EEE0F0 /* libPods-cumbuca-cumbucaTests.a */; };
+		AF221C9D27480024ECE79416 /* libPods-cumbuca.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B693E7EEFBED584EBCD760D4 /* libPods-cumbuca.a */; };
 		DE9AD2642B7551B000632ED2 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9AD2632B7551B000632ED2 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +33,7 @@
 		00E356EE1AD99517003FC87E /* cumbucaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cumbucaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* cumbucaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cumbucaTests.m; sourceTree = "<group>"; };
+		0A583579002BC01DC784CF20 /* Pods-cumbuca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca.debug.xcconfig"; path = "Target Support Files/Pods-cumbuca/Pods-cumbuca.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* cumbuca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cumbuca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = cumbuca/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = cumbuca/AppDelegate.mm; sourceTree = "<group>"; };
@@ -40,14 +41,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = cumbuca/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = cumbuca/main.m; sourceTree = "<group>"; };
 		310B9BA8C98C4F608E2CC021 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		5C9968141156E117CE8EE2B3 /* Pods-cumbuca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca.debug.xcconfig"; path = "Target Support Files/Pods-cumbuca/Pods-cumbuca.debug.xcconfig"; sourceTree = "<group>"; };
-		6B972AB52AE73296B062F41D /* Pods-cumbuca-cumbucaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca-cumbucaTests.release.xcconfig"; path = "Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests.release.xcconfig"; sourceTree = "<group>"; };
-		75871B6A7132F391425974B3 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca-cumbucaTests.debug.xcconfig"; path = "Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7A329511115A90A5611CD317 /* Pods-cumbuca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca.release.xcconfig"; path = "Target Support Files/Pods-cumbuca/Pods-cumbuca.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = cumbuca/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83CAED2A6E74F83637EEE0F0 /* libPods-cumbuca-cumbucaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cumbuca-cumbucaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ABE71EA5B8448CEC4286EE0 /* libPods-cumbuca.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cumbuca.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81C7F130E84D14337FCBA4C1 /* Pods-cumbuca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca.release.xcconfig"; path = "Target Support Files/Pods-cumbuca/Pods-cumbuca.release.xcconfig"; sourceTree = "<group>"; };
+		90DDC2AAFF6D9DD8784D3A97 /* Pods-cumbuca-cumbucaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca-cumbucaTests.release.xcconfig"; path = "Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests.release.xcconfig"; sourceTree = "<group>"; };
+		A07681E82DEFC5693FC8D4F0 /* libPods-cumbuca-cumbucaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cumbuca-cumbucaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A870ABA038FC47F1A6A1B568 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		B693E7EEFBED584EBCD760D4 /* libPods-cumbuca.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cumbuca.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3417D4C3C687A9F46C7452 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cumbuca-cumbucaTests.debug.xcconfig"; path = "Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE9AD2632B7551B000632ED2 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = cumbuca/BootSplash.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A3182DC41382264F58F890 /* libPods-cumbuca-cumbucaTests.a in Frameworks */,
+				AB0369F4D23693F3841D8F08 /* libPods-cumbuca-cumbucaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A161C066609D6979FB45BBAE /* libPods-cumbuca.a in Frameworks */,
+				AF221C9D27480024ECE79416 /* libPods-cumbuca.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8ABE71EA5B8448CEC4286EE0 /* libPods-cumbuca.a */,
-				83CAED2A6E74F83637EEE0F0 /* libPods-cumbuca-cumbucaTests.a */,
+				B693E7EEFBED584EBCD760D4 /* libPods-cumbuca.a */,
+				A07681E82DEFC5693FC8D4F0 /* libPods-cumbuca-cumbucaTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,10 +158,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C9968141156E117CE8EE2B3 /* Pods-cumbuca.debug.xcconfig */,
-				7A329511115A90A5611CD317 /* Pods-cumbuca.release.xcconfig */,
-				75871B6A7132F391425974B3 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */,
-				6B972AB52AE73296B062F41D /* Pods-cumbuca-cumbucaTests.release.xcconfig */,
+				0A583579002BC01DC784CF20 /* Pods-cumbuca.debug.xcconfig */,
+				81C7F130E84D14337FCBA4C1 /* Pods-cumbuca.release.xcconfig */,
+				DE3417D4C3C687A9F46C7452 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */,
+				90DDC2AAFF6D9DD8784D3A97 /* Pods-cumbuca-cumbucaTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -173,12 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "cumbucaTests" */;
 			buildPhases = (
-				00CCC94853FB810E00DBA866 /* [CP] Check Pods Manifest.lock */,
+				902A2A55B1318A8C62EE02A7 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				B577F81538BC567A423EE33D /* [CP] Embed Pods Frameworks */,
-				F1B27DA2FB3EA50E64F3A340 /* [CP] Copy Pods Resources */,
+				7C1400C9D1199E18EE99F547 /* [CP] Embed Pods Frameworks */,
+				73752A088341CF4272CB34AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,13 +194,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "cumbuca" */;
 			buildPhases = (
-				696F0C8A92AB7CBE4A4BA5BC /* [CP] Check Pods Manifest.lock */,
+				6F4CB0FBCBAED0D50FD1DB2D /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				21E418842E97A4C15E357469 /* [CP] Embed Pods Frameworks */,
-				2C697F466940A443E7C50DDF /* [CP] Copy Pods Resources */,
+				1AC6468F783B69D7C645101D /* [CP] Embed Pods Frameworks */,
+				E55EE33D4044793E95BC707B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,28 +270,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00CCC94853FB810E00DBA866 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-cumbuca-cumbucaTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,7 +286,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		21E418842E97A4C15E357469 /* [CP] Embed Pods Frameworks */ = {
+		1AC6468F783B69D7C645101D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -325,24 +303,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C697F466940A443E7C50DDF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		696F0C8A92AB7CBE4A4BA5BC /* [CP] Check Pods Manifest.lock */ = {
+		6F4CB0FBCBAED0D50FD1DB2D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,7 +325,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B577F81538BC567A423EE33D /* [CP] Embed Pods Frameworks */ = {
+		73752A088341CF4272CB34AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C1400C9D1199E18EE99F547 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,21 +359,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F1B27DA2FB3EA50E64F3A340 /* [CP] Copy Pods Resources */ = {
+		902A2A55B1318A8C62EE02A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cumbuca-cumbucaTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca-cumbucaTests/Pods-cumbuca-cumbucaTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E55EE33D4044793E95BC707B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cumbuca/Pods-cumbuca-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -431,7 +431,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75871B6A7132F391425974B3 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */;
+			baseConfigurationReference = DE3417D4C3C687A9F46C7452 /* Pods-cumbuca-cumbucaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -458,7 +458,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B972AB52AE73296B062F41D /* Pods-cumbuca-cumbucaTests.release.xcconfig */;
+			baseConfigurationReference = 90DDC2AAFF6D9DD8784D3A97 /* Pods-cumbuca-cumbucaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -482,7 +482,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C9968141156E117CE8EE2B3 /* Pods-cumbuca.debug.xcconfig */;
+			baseConfigurationReference = 0A583579002BC01DC784CF20 /* Pods-cumbuca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -509,7 +509,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A329511115A90A5611CD317 /* Pods-cumbuca.release.xcconfig */;
+			baseConfigurationReference = 81C7F130E84D14337FCBA4C1 /* Pods-cumbuca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

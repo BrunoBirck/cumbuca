@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import AuthContext, {User} from './context';
-import {verifyUserCredentials} from '@services/storage';
+import {setItem, verifyUserCredentials} from '@services/storage';
+import { APP_SIGNED_USER } from '@services/storage/keys';
 
 export const AuthProvider = ({children}: {children: React.ReactNode}) => {
   const [user, setUser] = useState<User | null>(null);
@@ -27,6 +28,7 @@ export const AuthProvider = ({children}: {children: React.ReactNode}) => {
   async function signOut() {
     setUser(null);
     setIsSigned(false);
+    setItem(APP_SIGNED_USER, '');
   }
 
   return (

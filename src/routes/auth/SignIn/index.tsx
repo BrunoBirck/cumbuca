@@ -13,6 +13,10 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import useAuth from '@providers/authorization/useAuth';
 import {formatCPF, isValidCpf} from '@utils/validateCpf';
 import {useToast} from '@providers/toast/useToast';
+import {getUser} from '@services/storage';
+import ReactNativeBiometrics from 'react-native-biometrics';
+
+const rnBiometrics = new ReactNativeBiometrics();
 
 export function SignIn() {
   const {signIn, loading} = useAuth();
@@ -31,6 +35,7 @@ export function SignIn() {
   const {
     control,
     handleSubmit,
+    getValues,
     formState: {errors},
   } = useForm<ISignInPutForm>({
     resolver: yupResolver(schema),
@@ -50,6 +55,28 @@ export function SignIn() {
     },
     [show, signIn],
   );
+
+  const handleVerifyBiometrics = useCallback(async () => {
+    const cpf = getValues('cpf');
+    const user = getUser(cpf);
+    if (user?.isBiometricActive) {
+      const {success} = await rnBiometrics.simplePrompt({
+        promptMessage: 'Login com biometria',
+      });
+      if (success) {
+        try {
+          const response = await signIn(cpf, user.password);
+          if (response instanceof Error) {
+            throw new Error(response.message);
+          }
+        } catch (error) {
+          if (error instanceof Error) {
+            show(error.message, 'error');
+          }
+        }
+      }
+    }
+  }, [getValues, show, signIn]);
 
   return (
     <KeyboardAvoidingView
@@ -81,6 +108,9 @@ export function SignIn() {
                 name="cpf"
                 label="CPF"
                 maskFunction={formatCPF}
+                keyboardType="number-pad"
+                onEndEditing={handleVerifyBiometrics}
+                onSubmitEditing={handleVerifyBiometrics}
               />
               <ControlledInput
                 secureTextEntry
@@ -88,6 +118,7 @@ export function SignIn() {
                 control={control}
                 name="password"
                 label="Senha"
+                onSubmitEditing={handleSubmit(onSubmit)}
               />
             </S.BoxWithGap>
             <S.BoxCentered>

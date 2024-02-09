@@ -5,7 +5,7 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 import {ISwitchProps} from './types';
-import React from 'react';
+import React, {useEffect} from 'react';
 import * as S from './styles';
 
 export function Switch({value, onValueChange}: ISwitchProps) {
@@ -30,6 +30,12 @@ export function Switch({value, onValueChange}: ISwitchProps) {
       transform: [{translateX: translateX.value}],
     };
   });
+
+  useEffect(() => {
+    translateX.value = withTiming(!value ? 0 : 25, {
+      duration: 150,
+    });
+  }, [value, translateX]);
 
   return (
     <S.Wrapper>
