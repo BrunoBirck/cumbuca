@@ -1,14 +1,17 @@
 import PageContent from '@components/PageContent';
-import React from 'react';
+import React, {useMemo} from 'react';
 import * as S from './styles';
 import Typography from '@components/Typography';
 import {Switch} from '@components/Switch';
 import {useTheme} from 'styled-components/native';
 import {Button} from '@components/Button';
 import {PageHeader} from '@components/PageHeader';
+import useThemeProvider from '@providers/theme/useTheme';
 
 export function Settings() {
   const theme = useTheme();
+  const {toggleTheme, theme: themeProvider} = useThemeProvider();
+  const isDarkMode = useMemo(() => themeProvider === 'dark', [themeProvider]);
   return (
     <PageContent>
       <S.Container>
@@ -17,7 +20,7 @@ export function Settings() {
           <Typography semibold color={theme.colors.placeholder}>
             Modo escuro
           </Typography>
-          <Switch value={true} onValueChange={console.log} />
+          <Switch value={isDarkMode} onValueChange={toggleTheme} />
         </S.Box>
         <S.Box>
           <Typography semibold color={theme.colors.placeholder}>
