@@ -37,6 +37,10 @@ export const Box = styled(HelloBox)`
   width: 100%;
 `;
 
+export const BoxWithFlex = styled(Box)`
+  flex: 1;
+`;
+
 export const ProductOrderByList = styled(ScrollView).attrs(({theme}) => ({
   horizontal: true,
   showsHorizontalScrollIndicator: false,

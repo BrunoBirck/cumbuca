@@ -9,10 +9,20 @@ import {IProduct} from 'src/types/Product';
 import {formatMoney} from '@utils/formatMoney';
 import {removeProduct, updateProductQuantity} from '@services/storage';
 
-export function ProductCard({product}: {product: IProduct}) {
+export function ProductCard({
+  product,
+  onLongPress,
+  onPressOut,
+  isActive,
+}: {
+  product: IProduct;
+  isActive?: boolean;
+  onLongPress?: () => void;
+  onPressOut?: () => void;
+}) {
   const theme = useTheme();
   return (
-    <Card>
+    <Card onLongPress={onLongPress} onPressOut={onPressOut} isActive={isActive}>
       <S.Container>
         <S.BoxWithGap>
           <S.Row>

@@ -1,20 +1,18 @@
 import PageContent from '@components/PageContent';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import * as S from './styles';
-import {useTheme} from 'styled-components/native';
 import {ProductCard} from './components/ProductCard';
 import {Button} from '@components/Button';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '..';
 import {IProduct} from 'src/types/Product';
 import {productsByUser, storage} from '@services/storage';
-import {FlatList} from 'react-native-gesture-handler';
 import {HeaderList} from './components/HeaderList';
 import {Filters} from './components/Filters';
 import {Keyboard, TouchableWithoutFeedback} from 'react-native';
+import DragList from '@components/Draglist';
 
 export function ProductList() {
-  const theme = useTheme();
   const navigation = useNavigation<NavigationProp<AppStack>>();
   const productsFromStorage = productsByUser();
 
@@ -55,6 +53,18 @@ export function ProductList() {
       setOrderBy(order);
     },
     [orderBy],
+  );
+
+  const handleReordered = useCallback(
+    (fromIndex: number, toIndex: number) => {
+      const copy = [...products];
+      const removed = copy.splice(fromIndex, 1);
+
+      copy.splice(toIndex, 0, removed[0]);
+      setOrderBy('');
+      setProducts(copy);
+    },
+    [products],
   );
 
   const filteredProducts = useMemo(() => {
@@ -102,18 +112,25 @@ export function ProductList() {
           />
         </S.Container>
       </TouchableWithoutFeedback>
-      <S.Box>
-        <FlatList
+      <S.BoxWithFlex>
+        <DragList
           data={filteredProducts}
-          keyExtractor={item => JSON.stringify(item.id)}
-          renderItem={({item}) => <ProductCard product={item} />}
+          keyExtractor={(item: IProduct) => JSON.stringify(item)}
+          onReordered={handleReordered}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
-            gap: theme.spacersRaw['sm-3'],
-            paddingBottom: 360,
-          }}
+          renderItem={({item, onDragStart, onDragEnd, isActive}) => (
+            <ProductCard
+              key={JSON.stringify(item)}
+              product={item}
+              onLongPress={onDragStart}
+              onPressOut={onDragEnd}
+              isActive={isActive}
+            />
+          )}
+          contentContainerStyle={{gap: 8, paddingBottom: 120}}
+          scrollEnabled
         />
-      </S.Box>
+      </S.BoxWithFlex>
       <S.ButtonAbsolute>
         <Button
           variant="primary-rounded"
