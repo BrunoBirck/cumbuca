@@ -65,7 +65,7 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
   const textColor = useMemo(() => {
     switch (toast?.variant) {
       case 'success':
-        return theme.colors.text;
+        return theme.colors.white;
       case 'error':
         return theme.colors.white;
       case 'info':

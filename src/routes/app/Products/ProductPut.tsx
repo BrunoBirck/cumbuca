@@ -81,12 +81,14 @@ export function ProductPut() {
                 name="quantity"
                 label="Estoque"
                 errors={errors.quantity}
+                keyboardType="number-pad"
               />
               <ControlledInput
                 control={control}
                 name="unityPrice"
                 label="Valor unitário (R$)"
                 errors={errors.unityPrice}
+                keyboardType="number-pad"
               />
             </S.FormWrapper>
           </S.Box>
