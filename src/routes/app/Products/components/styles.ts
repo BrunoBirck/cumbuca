@@ -40,3 +40,18 @@ export const BoxForQuantity = styled.View`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const BoxEmptyStateContainer = styled(ColumnWithFlex)`
+  width: 100%;
+  justify-content: space-around;
+`;
+
+export const BoxEmptyStateHeader = styled(ColumnWithFlex)`
+  width: 100%;
+  align-items: center;
+`;
+
+export const BoxEmptyStateButton = styled(Column)`
+  width: 100%;
+  padding-bottom: ${({theme}) => theme.spacers['lg-1']};
+`;

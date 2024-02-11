@@ -14,6 +14,7 @@ import signoutLight from '@assets/light/signout.png';
 import trashLight from '@assets/light/trash.png';
 import warningLight from '@assets/light/warning.png';
 import logoLight from '@assets/light/logo.png';
+import boxLight from '@assets/light/ic_box.png';
 
 import arrowLeftDark from '@assets/dark/arrow-left.png';
 import eyeCloseErrorDark from '@assets/dark/eye-close-error.png';
@@ -27,6 +28,8 @@ import signoutDark from '@assets/dark/signout.png';
 import trashDark from '@assets/dark/trash.png';
 import warningDark from '@assets/dark/warning.png';
 import logoDark from '@assets/light/logo.png';
+import boxDark from '@assets/light/ic_box.png';
+
 import {IIconProps} from './types';
 
 const lightIcons = {
@@ -42,6 +45,7 @@ const lightIcons = {
   trash: trashLight,
   warning: warningLight,
   logo: logoLight,
+  box: boxLight,
 };
 
 const darkIcons = {
@@ -57,6 +61,7 @@ const darkIcons = {
   trash: trashDark,
   warning: warningDark,
   logo: logoDark,
+  box: boxDark,
 };
 
 export function Icon({name, width = 18, height = 18}: IIconProps) {

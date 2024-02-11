@@ -12,6 +12,7 @@ import {FlatList, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import DragList from '@components/Draglist';
 import {storage, productsByUser} from '@services/storage';
 import {useTheme} from 'styled-components/native';
+import {EmptyState} from './components/EmptyState';
 
 export function ProductList() {
   const theme = useTheme();
@@ -115,38 +116,44 @@ export function ProductList() {
           />
         </S.Container>
       </TouchableWithoutFeedback>
-      <S.BoxWithFlex>
-        <DragList
-          ref={listRef}
-          data={filteredProducts}
-          keyExtractor={(item: IProduct) => JSON.stringify(item)}
-          onReordered={handleReordered}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item, onDragStart, onDragEnd, isActive}) => (
-            <ProductCard
-              key={JSON.stringify(item)}
-              product={item}
-              onLongPress={onDragStart}
-              onPressOut={onDragEnd}
-              isActive={isActive}
+      {products.length > 0 ? (
+        <>
+          <S.BoxWithFlex>
+            <DragList
+              ref={listRef}
+              data={filteredProducts}
+              keyExtractor={(item: IProduct) => JSON.stringify(item)}
+              onReordered={handleReordered}
+              showsVerticalScrollIndicator={false}
+              renderItem={({item, onDragStart, onDragEnd, isActive}) => (
+                <ProductCard
+                  key={JSON.stringify(item)}
+                  product={item}
+                  onLongPress={onDragStart}
+                  onPressOut={onDragEnd}
+                  isActive={isActive}
+                />
+              )}
+              contentContainerStyle={{
+                gap: theme.spacersRaw['sm-2'],
+                paddingBottom: 120,
+              }}
+              scrollEnabled
             />
-          )}
-          contentContainerStyle={{
-            gap: theme.spacersRaw['sm-2'],
-            paddingBottom: 120,
-          }}
-          scrollEnabled
-        />
-      </S.BoxWithFlex>
-      <S.ButtonAbsolute>
-        <Button
-          variant="primary-rounded"
-          label="Produto"
-          icon="plus"
-          width="154px"
-          onPress={() => navigation.navigate('product-put')}
-        />
-      </S.ButtonAbsolute>
+          </S.BoxWithFlex>
+          <S.ButtonAbsolute>
+            <Button
+              variant="primary-rounded"
+              label="Produto"
+              icon="plus"
+              width="154px"
+              onPress={() => navigation.navigate('product-put')}
+            />
+          </S.ButtonAbsolute>
+        </>
+      ) : (
+        <EmptyState />
+      )}
     </PageContent>
   );
 }

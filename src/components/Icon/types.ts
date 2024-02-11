@@ -11,6 +11,7 @@ export enum IconName {
   trash,
   warning,
   logo,
+  box,
 }
 
 export interface IIconProps {
