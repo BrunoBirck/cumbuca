@@ -34,6 +34,7 @@ export type CellRendererProps<T> = {
   children: React.ReactNode;
   onLayout?: (e: LayoutChangeEvent) => void;
   style?: StyleProp<ViewStyle>;
+  testID?: string;
 };
 
 export interface WithForwardRefType extends React.FC<Props<any>> {
