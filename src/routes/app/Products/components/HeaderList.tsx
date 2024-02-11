@@ -20,7 +20,11 @@ export function HeaderList() {
       <S.SettingsButton
         onPress={() => navigation.navigate('settings')}
         activeOpacity={0.8}>
-        <Icon name="settings" width={24} height={24} />
+        <Icon
+          name="settings"
+          width={theme.spacersRaw['md-3']}
+          height={theme.spacersRaw['md-3']}
+        />
       </S.SettingsButton>
     </S.Header>
   );

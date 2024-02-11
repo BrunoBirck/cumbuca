@@ -1,6 +1,6 @@
 import {Platform} from 'react-native';
 
-const Theme = {
+const dark = {
   colors: {
     primary: '#FF949E',
     white: '#FCFCFC',
@@ -51,4 +51,4 @@ const Theme = {
   },
 };
 
-export default Theme;
+export default dark;

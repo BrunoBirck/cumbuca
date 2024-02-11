@@ -10,8 +10,9 @@ import useThemeProvider from '@providers/theme/useTheme';
 import useAuth from '@providers/authorization/useAuth';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import {useToast} from '@providers/toast/useToast';
-import {getItem, getUser, setItem} from '@services/storage';
+import {getItem, setItem} from '@services/storage/global';
 import {APP_SIGNED_USER} from '@services/storage/keys';
+import {getUser} from '@services/storage/user';
 
 const rnBiometrics = new ReactNativeBiometrics();
 

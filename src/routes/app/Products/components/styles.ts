@@ -13,14 +13,14 @@ export const Box = styled.View`
 `;
 
 export const BoxWithGap = styled(Box)`
-  gap: 4px;
+  gap: ${({theme}) => theme.spacers['sm-1']};
 `;
 
 export const TrashBox = styled.View`
   width: 4%;
   justify-content: center;
   align-items: center;
-  padding-right: 12px;
+  padding-right: ${({theme}) => theme.spacers['sm-3']};
 `;
 
 export const Column = styled.View``;
@@ -31,7 +31,7 @@ export const ColumnWithFlex = styled.View`
 
 export const Row = styled.View`
   flex-direction: row;
-  gap: 4px;
+  gap: ${({theme}) => theme.spacers['sm-1']};
 `;
 
 export const BoxForQuantity = styled.View`

@@ -10,11 +10,12 @@ export const StyledTextInput = styled.TextInput<{
   isFocused?: boolean;
   ref?: React.RefObject<any>;
 }>`
-  padding: 16px;
+  padding: ${({theme}) => theme.spacers['md-1']};
   border-bottom-width: 2px;
   font-family: 'Poppins-Semibold';
   font-weight: ${props => props.theme.fontWeights.semibold};
-  font-size: 16px;
+  font-size: ${({theme}) => theme.spacers['md-1']};
+  color: ${({theme}) => theme.colors.text};
   border-color: ${props =>
     props.error
       ? props.theme.colors.error
@@ -25,13 +26,13 @@ export const StyledTextInput = styled.TextInput<{
 
 export const LabelContainer = styled(Animated.View)`
   position: absolute;
-  padding-horizontal: 8px;
+  padding-horizontal: ${({theme}) => theme.spacers['sm-2']};
 `;
 
 export const StyledLabel = styled.Text<{error?: boolean; isFocused?: boolean}>`
   font-family: 'Poppins-Semibold';
   font-weight: ${props => props.theme.fontWeights.semibold};
-  font-size: 16px;
+  font-size: ${({theme}) => theme.spacers['md-1']};
   color: ${props =>
     props.error
       ? props.theme.colors.error
@@ -41,9 +42,9 @@ export const StyledLabel = styled.Text<{error?: boolean; isFocused?: boolean}>`
 `;
 
 export const ErrorText = styled.Text`
-  margin-top: 4px;
-  margin-left: 12px;
-  font-size: 12px;
+  margin-top: ${({theme}) => theme.spacers['sm-1']};
+  margin-left: ${({theme}) => theme.spacers['sm-3']};
+  font-size: ${({theme}) => theme.spacers['sm-3']};
   color: ${props => props.theme.colors.error};
   font-family: 'Poppins-Semibold';
   font-weight: ${props => props.theme.fontWeights.semibold};
@@ -52,7 +53,7 @@ export const ErrorText = styled.Text`
 export const IconContainer = styled.View`
   position: absolute;
   top: 25%;
-  right: 12px;
+  right: ${({theme}) => theme.spacers['sm-3']};
   padding: 10px;
   z-index: 1;
 `;

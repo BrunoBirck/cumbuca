@@ -7,7 +7,7 @@ import {useTheme} from 'styled-components/native';
 import * as S from './styles';
 import {IProduct} from 'src/types/Product';
 import {formatMoney} from '@utils/formatMoney';
-import {removeProduct, updateProductQuantity} from '@services/storage';
+import {removeProduct, updateProductQuantity} from '@services/storage/products';
 
 export function ProductCard({
   product,
@@ -46,12 +46,20 @@ export function ProductCard({
             <S.BoxForQuantity>
               <Pressable
                 onPress={() => updateProductQuantity(product.id, 'less')}>
-                <Icon name="less" width={24} height={24} />
+                <Icon
+                  name="less"
+                  width={theme.spacersRaw['md-3']}
+                  height={theme.spacersRaw['md-3']}
+                />
               </Pressable>
               <Typography variant="sm">{product?.quantity}</Typography>
               <Pressable
                 onPress={() => updateProductQuantity(product.id, 'sum')}>
-                <Icon name="plus" width={24} height={24} />
+                <Icon
+                  name="plus"
+                  width={theme.spacersRaw['md-3']}
+                  height={theme.spacersRaw['md-3']}
+                />
               </Pressable>
             </S.BoxForQuantity>
           </S.Column>
@@ -76,7 +84,11 @@ export function ProductCard({
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => removeProduct(product.id)}>
-            <Icon name="trash" width={24} height={24} />
+            <Icon
+              name="trash"
+              width={theme.spacersRaw['md-3']}
+              height={theme.spacersRaw['md-3']}
+            />
           </TouchableOpacity>
         </S.TrashBox>
       </S.Container>

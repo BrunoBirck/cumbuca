@@ -1,5 +1,5 @@
 import {createContext} from 'react';
-import { IUser } from 'src/types/User';
+import {IUser} from 'src/types/User';
 
 export interface User {
   cpf: string;

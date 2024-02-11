@@ -11,8 +11,10 @@ import {
 import * as S from './styles';
 import {IInputProps} from './types';
 import {Icon} from '@components/Icon';
+import {useTheme} from 'styled-components/native';
 
 export function Input(props: IInputProps) {
+  const theme = useTheme();
   const {
     label,
     errorText,
@@ -101,7 +103,11 @@ export function Input(props: IInputProps) {
         <TouchableWithoutFeedback
           onPress={() => setShowPassword(!showPassword)}>
           <S.IconContainer>
-            <Icon name={iconName} width={24} height={24} />
+            <Icon
+              name={iconName}
+              width={theme.spacersRaw['md-3']}
+              height={theme.spacersRaw['md-3']}
+            />
           </S.IconContainer>
         </TouchableWithoutFeedback>
       )}

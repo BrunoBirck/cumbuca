@@ -11,17 +11,17 @@ export const Wrapper = styled.View`
 export const SwitchContainer = styled.View<{isOn?: boolean}>`
   background-color: ${({theme, isOn}) =>
     isOn ? theme.colors.primary : theme.colors.disabled};
-  border-radius: 24px;
+  border-radius: ${({theme}) => theme.spacers['md-3']};
   width: 100%;
   height: 32px;
   justify-content: center;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: ${({theme}) => theme.spacers['sm-1']};
+  padding-right: ${({theme}) => theme.spacers['sm-1']};
 `;
 
 export const Handle = styled(Animated.View)`
-  width: 24px;
-  height: 24px;
+  width: ${({theme}) => theme.spacers['md-3']};
+  height: ${({theme}) => theme.spacers['md-3']};
   background-color: ${({theme}) => theme.colors.background};
-  border-radius: 24px;
+  border-radius: ${({theme}) => theme.spacers['md-3']};
 `;

@@ -53,8 +53,8 @@ export const ProductOrderByList = styled(ScrollView).attrs(({theme}) => ({
 
 export const ButtonAbsolute = styled.View`
   position: absolute;
-  right: 20px;
-  bottom: 44px;
+  right: ${({theme}) => theme.spacers['md-2']};
+  bottom: ${({theme}) => theme.spacers['lg-2']};
   padding: ${({theme}) => theme.spacers['sm-1']};
   z-index: 1;
 `;

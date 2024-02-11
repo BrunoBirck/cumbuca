@@ -6,14 +6,19 @@ import Typography from '@components/Typography';
 import React, {useCallback} from 'react';
 import {useForm} from 'react-hook-form';
 import * as S from './styles';
-import {Keyboard, KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import * as yup from 'yup';
 import {ISignInPutForm} from './types';
 import {yupResolver} from '@hookform/resolvers/yup';
 import useAuth from '@providers/authorization/useAuth';
 import {formatCPF, isValidCpf} from '@utils/validateCpf';
 import {useToast} from '@providers/toast/useToast';
-import {getUser} from '@services/storage';
+import {getUser} from '@services/storage/user';
 import ReactNativeBiometrics from 'react-native-biometrics';
 
 const rnBiometrics = new ReactNativeBiometrics();

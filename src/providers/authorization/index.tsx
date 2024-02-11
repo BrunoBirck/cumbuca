@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import AuthContext, {User} from './context';
-import {setItem, verifyUserCredentials} from '@services/storage';
-import { APP_SIGNED_USER } from '@services/storage/keys';
+import {APP_SIGNED_USER} from '@services/storage/keys';
+import {verifyUserCredentials} from '@services/storage/user';
+import {setItem} from '@services/storage/global';
 
 export const AuthProvider = ({children}: {children: React.ReactNode}) => {
   const [user, setUser] = useState<User | null>(null);

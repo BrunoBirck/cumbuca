@@ -21,5 +21,6 @@ export const Content = styled.View<{
   align-items: center;
   background-color: ${({backgroundColor, theme}) =>
     backgroundColor ?? theme.colors.background};
-  padding: ${({fullContent}) => (fullContent ? 0 : '0 24px')};
+  padding: ${({fullContent, theme}) =>
+    fullContent ? 0 : `0 ${theme.spacers['md-3']}`};
 `;

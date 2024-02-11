@@ -9,7 +9,7 @@ export const BadgeContainer = styled.TouchableOpacity<{
   justify-content: center;
   background-color: ${({backgroundColor}) => backgroundColor};
   border: ${({borderColor}) => `1px solid ${borderColor}`};
-  border-radius: 8px;
-  padding: 4px 8px;
-  gap: 4px;
+  border-radius: ${({theme}) => theme.spacers['sm-2']};
+  padding: ${({theme}) => `${theme.spacers['sm-1']} ${theme.spacers['sm-2']}`};
+  gap: ${({theme}) => theme.spacers['sm-1']};
 `;

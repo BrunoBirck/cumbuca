@@ -1,8 +1,8 @@
-import {getItem, setItem} from '@services/storage';
 import {APP_THEME} from '@services/storage/keys';
 import React, {useEffect, useState} from 'react';
 import {ThemeProvider as ThemeProviderStyled} from 'styled-components';
 import {ThemeContext, ThemeType, themes} from './context';
+import {getItem, setItem} from '@services/storage/global';
 
 export const ThemeProvider = ({children}: {children: React.ReactNode}) => {
   const [theme, setTheme] = useState(ThemeType.light);

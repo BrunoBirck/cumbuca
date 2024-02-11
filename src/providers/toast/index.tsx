@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useMemo, useCallback} from 'react';
 import {ViewStyle} from 'react-native';
 import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
 import Typography from '@components/Typography';
@@ -7,32 +7,20 @@ import {ToastContext, ToastContextProps, ToastProps} from './context';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export function ToastProvider({children}: {children: React.ReactNode}) {
-  const [toast, setToast] = useState<ToastProps | null>(null);
   const translateY = useSharedValue(-100);
   const theme = useTheme();
-
-  useEffect(() => {
-    if (toast) {
-      translateY.value = withTiming(0, {duration: 200});
-      const timer = setTimeout(() => {
-        setToast(null);
-      }, 3000);
-      return () => clearTimeout(timer);
-    } else {
-      translateY.value = withTiming(-100, {duration: 200});
-    }
-  }, [toast, translateY]);
-
-  const showToast = (
-    message: string,
-    variant: 'success' | 'error' | 'info' = 'info',
-  ) => {
-    setToast({message, variant});
-  };
-
   const insets = useSafeAreaInsets();
 
-  const getStyles = (): ViewStyle => {
+  const [toast, setToast] = useState<ToastProps | null>(null);
+
+  const showToast = useCallback(
+    (message: string, variant: 'success' | 'error' | 'info' = 'info') => {
+      setToast({message, variant});
+    },
+    [],
+  );
+
+  const styles = useMemo((): ViewStyle => {
     const baseStyles: ViewStyle = {
       position: 'absolute',
       top: 0,
@@ -56,7 +44,7 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
       default:
         return baseStyles;
     }
-  };
+  }, [insets, theme, toast]);
 
   const contextValue: ToastContextProps = {
     show: showToast,
@@ -75,11 +63,23 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
     }
   }, [theme, toast?.variant]);
 
+  useEffect(() => {
+    if (toast) {
+      translateY.value = withTiming(0, {duration: 200});
+      const timer = setTimeout(() => {
+        setToast(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    } else {
+      translateY.value = withTiming(-100, {duration: 200});
+    }
+  }, [toast, translateY]);
+
   return (
     <ToastContext.Provider value={contextValue}>
       {children}
       {toast && (
-        <Animated.View style={[getStyles(), {transform: [{translateY}]}]}>
+        <Animated.View style={[styles, {transform: [{translateY}]}]}>
           <Typography color={textColor}>{toast.message}</Typography>
         </Animated.View>
       )}

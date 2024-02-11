@@ -10,10 +10,13 @@ import {Keyboard, Pressable} from 'react-native';
 import {IProductPutFormData} from './types';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {createNewProduct, verifyProductExistsByName} from '@services/storage';
 import {useToast} from '@providers/toast/useToast';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '..';
+import {
+  createNewProduct,
+  verifyProductExistsByName,
+} from '@services/storage/products';
 
 export function ProductPut() {
   const navigation = useNavigation<NavigationProp<AppStack>>();

@@ -8,7 +8,6 @@ import {useTheme} from 'styled-components/native';
 
 export type AuthStack = {
   signin: undefined;
-  confirmation: undefined;
 };
 
 const {Navigator, Screen} = createStackNavigator<AuthStack>();

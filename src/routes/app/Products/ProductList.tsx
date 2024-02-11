@@ -6,13 +6,17 @@ import {Button} from '@components/Button';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '..';
 import {IProduct} from 'src/types/Product';
-import {productsByUser, storage} from '@services/storage';
 import {HeaderList} from './components/HeaderList';
 import {Filters} from './components/Filters';
-import {Keyboard, TouchableWithoutFeedback} from 'react-native';
+import {FlatList, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import DragList from '@components/Draglist';
+import {productsByUser} from '@services/storage/products';
+import {storage} from '@services/storage';
+import {useTheme} from 'styled-components/native';
 
 export function ProductList() {
+  const theme = useTheme();
+  const listRef = React.useRef<FlatList<string>>(null);
   const navigation = useNavigation<NavigationProp<AppStack>>();
   const productsFromStorage = productsByUser();
 
@@ -114,6 +118,7 @@ export function ProductList() {
       </TouchableWithoutFeedback>
       <S.BoxWithFlex>
         <DragList
+          ref={listRef}
           data={filteredProducts}
           keyExtractor={(item: IProduct) => JSON.stringify(item)}
           onReordered={handleReordered}
@@ -127,7 +132,10 @@ export function ProductList() {
               isActive={isActive}
             />
           )}
-          contentContainerStyle={{gap: 8, paddingBottom: 120}}
+          contentContainerStyle={{
+            gap: theme.spacersRaw['sm-2'],
+            paddingBottom: 120,
+          }}
           scrollEnabled
         />
       </S.BoxWithFlex>
