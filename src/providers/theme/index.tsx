@@ -1,6 +1,6 @@
 import {APP_THEME} from '@services/storage/keys';
 import React, {useEffect, useState} from 'react';
-import {ThemeProvider as ThemeProviderStyled} from 'styled-components';
+import {ThemeProvider as ThemeProviderStyled} from 'styled-components/native';
 import {ThemeContext, ThemeType, themes} from './context';
 import {getItem, setItem} from '@services/storage';
 

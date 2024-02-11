@@ -64,9 +64,9 @@ const darkIcons = {
   box: boxDark,
 };
 
-export function Icon({name, width = 18, height = 18}: IIconProps) {
+export function Icon({name, width = 18, height = 18, testID}: IIconProps) {
   const {theme} = useTheme();
   const icon = theme === 'light' ? lightIcons[name] : darkIcons[name];
 
-  return <Image source={icon} style={{width, height}} />;
+  return <Image testID={testID} source={icon} style={{width, height}} />;
 }

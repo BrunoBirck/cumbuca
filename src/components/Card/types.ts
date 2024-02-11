@@ -3,4 +3,5 @@ export interface ICardProps {
   isActive?: boolean;
   onLongPress?: () => void;
   onPressOut?: () => void;
+  testID?: string;
 }

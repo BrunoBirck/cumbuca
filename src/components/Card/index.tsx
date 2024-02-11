@@ -7,9 +7,11 @@ export function Card({
   isActive,
   onLongPress,
   onPressOut,
+  testID,
 }: ICardProps) {
   return (
     <S.Container
+      testID={testID}
       onLongPress={onLongPress}
       onPressOut={onPressOut}
       isActive={isActive}>

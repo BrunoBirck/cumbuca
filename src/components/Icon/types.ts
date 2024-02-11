@@ -18,4 +18,5 @@ export interface IIconProps {
   name: keyof typeof IconName;
   width: number;
   height: number;
+  testID?: string;
 }

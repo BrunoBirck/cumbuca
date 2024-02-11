@@ -22,7 +22,6 @@ export const setItem = (key: string, value: any) => {
 export const getItem = (key: string) => {
   if (!isEmpty(key)) {
     try {
-      console.log('key', key);
       const result = storage.getString(key);
       return result ? JSON.parse(result) : null;
     } catch (error) {

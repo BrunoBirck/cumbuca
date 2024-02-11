@@ -8,7 +8,7 @@ import {ISwitchProps} from './types';
 import React, {useEffect} from 'react';
 import * as S from './styles';
 
-export function Switch({value, onValueChange}: ISwitchProps) {
+export function Switch({value, onValueChange, testID}: ISwitchProps) {
   const translateX = useSharedValue(value ? 25 : 0);
 
   const handlePress = () => {
@@ -39,7 +39,7 @@ export function Switch({value, onValueChange}: ISwitchProps) {
 
   return (
     <S.Wrapper>
-      <S.SwitchContainer isOn={value} onTouchEnd={handlePress}>
+      <S.SwitchContainer testID={testID} isOn={value} onTouchEnd={handlePress}>
         <S.Handle style={animatedStyle} />
       </S.SwitchContainer>
     </S.Wrapper>

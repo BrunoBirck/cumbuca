@@ -7,15 +7,18 @@ import {IPageHeaderProps} from './types';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '@routes/app';
 
-export function PageHeader({title}: IPageHeaderProps) {
+export function PageHeader({title, testID}: IPageHeaderProps) {
   const navigation = useNavigation<NavigationProp<AppStack>>();
 
   return (
-    <S.Header>
-      <TouchableOpacity activeOpacity={0.8} onPress={navigation.goBack}>
+    <S.Header testID={testID}>
+      <TouchableOpacity
+        testID={`${testID}.button`}
+        activeOpacity={0.8}
+        onPress={navigation.goBack}>
         <Icon name="arrow-left" width={32} height={32} />
       </TouchableOpacity>
-      <Typography variant="lg" semibold>
+      <Typography testID={`${testID}.text`} variant="lg" semibold>
         {title}
       </Typography>
       <View />

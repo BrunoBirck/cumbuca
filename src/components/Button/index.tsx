@@ -13,6 +13,7 @@ export function Button({
   variant = 'primary',
   height = '55px',
   width = '100%',
+  testID,
   ...props
 }: IButtonProps) {
   const theme = useTheme();
@@ -23,14 +24,27 @@ export function Button({
     return theme.colors.text;
   };
   return (
-    <S.Container variant={variant} height={height} width={width} {...props}>
-      {!loading && icon && <Icon name={icon} width={24} height={24} />}
+    <S.Container
+      testID={testID}
+      variant={variant}
+      height={height}
+      width={width}
+      {...props}>
+      {!loading && icon && (
+        <Icon testID={`${testID}.icon`} name={icon} width={24} height={24} />
+      )}
       {label && !loading && (
-        <Typography color={color()} variant="lg" semibold>
+        <Typography
+          color={color()}
+          testID={`${testID}.text`}
+          variant="lg"
+          semibold>
           {label}
         </Typography>
       )}
-      {loading && <ActivityIndicator color={color()} />}
+      {loading && (
+        <ActivityIndicator testID={`${testID}.loading`} color={color()} />
+      )}
     </S.Container>
   );
 }

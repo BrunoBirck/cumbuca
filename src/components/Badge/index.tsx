@@ -25,7 +25,11 @@ export function Badge({text, testID, onPress, selected}: IBadgeProps) {
       testID={testID}
       backgroundColor={badgeColor}
       borderColor={borderColor}>
-      <Typography color={textColor} variant="sm" semibold>
+      <Typography
+        testID={`${testID}.text`}
+        color={textColor}
+        variant="sm"
+        semibold>
         {text}
       </Typography>
     </S.BadgeContainer>
