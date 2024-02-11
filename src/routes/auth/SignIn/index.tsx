@@ -18,7 +18,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import useAuth from '@providers/authorization/useAuth';
 import {formatCPF, isValidCpf} from '@utils/validateCpf';
 import {useToast} from '@providers/toast/useToast';
-import {getUser} from '@services/storage/user';
+import {getUser} from '@services/storage';
 import ReactNativeBiometrics from 'react-native-biometrics';
 
 const rnBiometrics = new ReactNativeBiometrics();

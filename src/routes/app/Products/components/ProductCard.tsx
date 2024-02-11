@@ -7,7 +7,7 @@ import {useTheme} from 'styled-components/native';
 import * as S from './styles';
 import {IProduct} from 'src/types/Product';
 import {formatMoney} from '@utils/formatMoney';
-import {removeProduct, updateProductQuantity} from '@services/storage/products';
+import {removeProduct, updateProductQuantity} from '@services/storage';
 
 export function ProductCard({
   product,

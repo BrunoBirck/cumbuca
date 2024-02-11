@@ -10,8 +10,7 @@ import {HeaderList} from './components/HeaderList';
 import {Filters} from './components/Filters';
 import {FlatList, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import DragList from '@components/Draglist';
-import {productsByUser} from '@services/storage/products';
-import {storage} from '@services/storage';
+import {storage, productsByUser} from '@services/storage';
 import {useTheme} from 'styled-components/native';
 
 export function ProductList() {

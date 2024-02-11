@@ -13,10 +13,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {useToast} from '@providers/toast/useToast';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {AppStack} from '..';
-import {
-  createNewProduct,
-  verifyProductExistsByName,
-} from '@services/storage/products';
+import {createNewProduct, verifyProductExistsByName} from '@services/storage';
 
 export function ProductPut() {
   const navigation = useNavigation<NavigationProp<AppStack>>();
