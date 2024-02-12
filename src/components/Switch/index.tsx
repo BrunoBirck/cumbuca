@@ -1,45 +1,40 @@
-import {
-  useSharedValue,
-  useAnimatedStyle,
-  runOnJS,
-  withTiming,
-} from 'react-native-reanimated';
-import {ISwitchProps} from './types';
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
+import {Animated, Easing} from 'react-native';
 import * as S from './styles';
+import {ISwitchProps} from './types';
 
 export function Switch({value, onValueChange, testID}: ISwitchProps) {
-  const translateX = useSharedValue(value ? 25 : 0);
+  const translateX = useRef(new Animated.Value(value ? 25 : 0)).current;
 
   const handlePress = () => {
-    translateX.value = withTiming(
-      value ? 0 : 25,
-      {
-        duration: 150,
-      },
-      isFinished => {
-        if (isFinished) {
-          runOnJS(onValueChange)(!value);
-        }
-      },
-    );
+    Animated.timing(translateX, {
+      toValue: value ? 0 : 25,
+      duration: 150,
+      easing: Easing.linear,
+      useNativeDriver: false,
+    }).start();
+
+    setTimeout(() => {
+      onValueChange(!value);
+    }, 150);
   };
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{translateX: translateX.value}],
-    };
-  });
+  const animatedStyle = {
+    transform: [{translateX}],
+  };
 
   useEffect(() => {
-    translateX.value = withTiming(!value ? 0 : 25, {
+    Animated.timing(translateX, {
+      toValue: !value ? 0 : 25,
       duration: 150,
-    });
+      easing: Easing.linear,
+      useNativeDriver: false,
+    }).start();
   }, [value, translateX]);
 
   return (
     <S.Wrapper>
-      <S.SwitchContainer testID={testID} isOn={value} onTouchEnd={handlePress}>
+      <S.SwitchContainer isOn={value} testID={testID} onTouchEnd={handlePress}>
         <S.Handle style={animatedStyle} />
       </S.SwitchContainer>
     </S.Wrapper>

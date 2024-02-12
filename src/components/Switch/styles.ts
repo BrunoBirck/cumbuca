@@ -1,4 +1,4 @@
-import Animated from 'react-native-reanimated';
+import {Animated} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
