@@ -4,7 +4,7 @@ import {
   Easing,
   TextInput,
   TouchableWithoutFeedback,
-} from 'react-native'; // Updated import statements
+} from 'react-native';
 import * as S from './styles';
 import {IInputProps} from './types';
 import {Icon} from '@components/Icon';
@@ -27,14 +27,14 @@ export function Input(props: IInputProps) {
   const inputRef = useRef<typeof S.StyledTextInput>(null);
   const focusAnim = useMemo(() => {
     return new Animated.Value(0);
-  }, []); // Change from useSharedValue to Animated.Value
+  }, []);
 
   useEffect(() => {
     Animated.timing(focusAnim, {
       toValue: isFocused || !!value ? 1 : 0,
       duration: 200,
       easing: Easing.inOut(Easing.ease),
-      useNativeDriver: false, // Set useNativeDriver to false
+      useNativeDriver: false,
     }).start();
   }, [focusAnim, isFocused, value]);
 
