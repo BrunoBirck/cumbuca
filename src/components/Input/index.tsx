@@ -1,13 +1,10 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
-import {TextInput, TouchableWithoutFeedback} from 'react-native';
 import {
+  Animated,
   Easing,
-  Extrapolate,
-  interpolate,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+  TextInput,
+  TouchableWithoutFeedback,
+} from 'react-native'; // Updated import statements
 import * as S from './styles';
 import {IInputProps} from './types';
 import {Icon} from '@components/Icon';
@@ -28,45 +25,44 @@ export function Input(props: IInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   const inputRef = useRef<typeof S.StyledTextInput>(null);
-  const focusAnim = useSharedValue(0);
+  const focusAnim = useMemo(() => {
+    return new Animated.Value(0);
+  }, []); // Change from useSharedValue to Animated.Value
 
   useEffect(() => {
-    focusAnim.value = withTiming(isFocused || !!value ? 1 : 0, {
+    Animated.timing(focusAnim, {
+      toValue: isFocused || !!value ? 1 : 0,
       duration: 200,
       easing: Easing.inOut(Easing.ease),
-    });
+      useNativeDriver: false, // Set useNativeDriver to false
+    }).start();
   }, [focusAnim, isFocused, value]);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          scale: interpolate(
-            focusAnim.value,
-            [0, 1],
-            [1, 0.75],
-            Extrapolate.CLAMP,
-          ),
-        },
-        {
-          translateY: interpolate(
-            focusAnim.value,
-            [0, 1],
-            [24, -12],
-            Extrapolate.CLAMP,
-          ),
-        },
-        {
-          translateX: interpolate(
-            focusAnim.value,
-            [0, 1],
-            [16, 0],
-            Extrapolate.CLAMP,
-          ),
-        },
-      ],
-    };
-  });
+  const animatedStyle = {
+    transform: [
+      {
+        scale: focusAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [1, 0.75],
+          extrapolate: 'clamp',
+        }),
+      },
+      {
+        translateY: focusAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [24, -12],
+          extrapolate: 'clamp',
+        }),
+      },
+      {
+        translateX: focusAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [16, 0],
+          extrapolate: 'clamp',
+        }),
+      },
+    ],
+  };
 
   const iconName = useMemo(() => {
     if (errorText && showPassword) {
