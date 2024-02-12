@@ -120,6 +120,7 @@ export function ProductList() {
         <S.BoxWithFlex>
           <DragList
             ref={listRef}
+            testID="product-list"
             data={filteredProducts}
             keyExtractor={(item: IProduct) => JSON.stringify(item)}
             onReordered={handleReordered}
@@ -131,6 +132,7 @@ export function ProductList() {
                 onLongPress={onDragStart}
                 onPressOut={onDragEnd}
                 isActive={isActive}
+                testID={`product-list.item-${item.id}`}
               />
             )}
             contentContainerStyle={{
