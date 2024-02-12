@@ -1,13 +1,14 @@
 import React, {useState, useEffect, useMemo, useCallback} from 'react';
-import {ViewStyle} from 'react-native';
-import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
+import {ViewStyle, Animated, Easing} from 'react-native';
 import Typography from '@components/Typography';
 import {useTheme} from 'styled-components/native';
-import {ToastContext, ToastContextProps, ToastProps} from './context';
+import {ToastContext, ToastProps} from './context';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export function ToastProvider({children}: {children: React.ReactNode}) {
-  const translateY = useSharedValue(-100);
+  const translateY = useMemo(() => {
+    return new Animated.Value(-100);
+  }, []);
   const theme = useTheme();
   const insets = useSafeAreaInsets();
 
@@ -46,10 +47,6 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
     }
   }, [insets, theme, toast]);
 
-  const contextValue: ToastContextProps = {
-    show: showToast,
-  };
-
   const textColor = useMemo(() => {
     switch (toast?.variant) {
       case 'success':
@@ -65,18 +62,29 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
 
   useEffect(() => {
     if (toast) {
-      translateY.value = withTiming(0, {duration: 200});
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: 200,
+        easing: Easing.inOut(Easing.ease),
+        useNativeDriver: false,
+      }).start();
+
       const timer = setTimeout(() => {
         setToast(null);
       }, 3000);
       return () => clearTimeout(timer);
     } else {
-      translateY.value = withTiming(-100, {duration: 200});
+      Animated.timing(translateY, {
+        toValue: -100,
+        duration: 200,
+        easing: Easing.inOut(Easing.ease),
+        useNativeDriver: false,
+      }).start();
     }
   }, [toast, translateY]);
 
   return (
-    <ToastContext.Provider value={contextValue}>
+    <ToastContext.Provider value={{show: showToast}}>
       {children}
       {toast && (
         <Animated.View style={[styles, {transform: [{translateY}]}]}>
