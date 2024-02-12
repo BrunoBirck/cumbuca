@@ -97,6 +97,7 @@ export function Input(props: IInputProps) {
       />
       {secureTextEntry && (
         <TouchableWithoutFeedback
+          testID="password-toggle-icon"
           onPress={() => setShowPassword(!showPassword)}>
           <S.IconContainer>
             <Icon
