@@ -22,10 +22,12 @@ if (Platform.OS === 'android') {
   }
 }
 
-function DragListImpl<T>(props: Props<T>) {
+function DragListImpl<T>(
+  props: Props<T>,
+  ref: React.ForwardedRef<FlatList<T>>,
+) {
   const {
     data,
-    ref,
     keyExtractor,
     onDragEnd,
     onScroll,

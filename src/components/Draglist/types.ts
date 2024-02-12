@@ -1,5 +1,4 @@
 import {
-  FlatList,
   FlatListProps,
   LayoutChangeEvent,
   ListRenderItemInfo,
@@ -20,7 +19,6 @@ export interface ExtraData {
 
 export interface Props<T> extends Omit<FlatListProps<T>, 'renderItem'> {
   data: T[];
-  ref?: React.ForwardedRef<FlatList<T>>;
   keyExtractor: (item: T) => string;
   renderItem: (info: DragListRenderItemInfo<T>) => React.ReactElement | null;
   onDragEnd?: () => void;

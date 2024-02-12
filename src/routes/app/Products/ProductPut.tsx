@@ -20,7 +20,10 @@ export function ProductPut() {
   const {show} = useToast();
 
   const schema = yup.object({
-    name: yup.string().required('Campo obrigatório'),
+    name: yup
+      .string()
+      .typeError('O campo precisa ser um texto')
+      .required('Campo obrigatório'),
     quantity: yup
       .number()
       .typeError('O campo precisa ser um número')
@@ -61,8 +64,8 @@ export function ProductPut() {
     [navigation, show],
   );
   return (
-    <Pressable onPress={Keyboard.dismiss} style={{flex: 1}}>
-      <PageContent>
+    <PageContent testID="product-put.page">
+      <Pressable onPress={Keyboard.dismiss} style={{flex: 1, width: '100%'}}>
         <S.ProductPutContainer>
           <S.Box>
             <PageHeader title="Novo produto" />
@@ -75,6 +78,7 @@ export function ProductPut() {
                 name="name"
                 label="Nome"
                 errors={errors.name}
+                testID="product-put.name.input"
               />
               <ControlledInput
                 control={control}
@@ -82,6 +86,7 @@ export function ProductPut() {
                 label="Estoque"
                 errors={errors.quantity}
                 keyboardType="number-pad"
+                testID="product-put.quantity.input"
               />
               <ControlledInput
                 control={control}
@@ -89,18 +94,20 @@ export function ProductPut() {
                 label="Valor unitário (R$)"
                 errors={errors.unityPrice}
                 keyboardType="number-pad"
+                testID="product-put.unity-price.input"
               />
             </S.FormWrapper>
           </S.Box>
         </S.ProductPutContainer>
-        <S.Footer>
-          <Button
-            label="Cadastrar"
-            icon="plus"
-            onPress={handleSubmit(onSubmit)}
-          />
-        </S.Footer>
-      </PageContent>
-    </Pressable>
+      </Pressable>
+      <S.Footer testID="footer">
+        <Button
+          label="Cadastrar"
+          icon="plus"
+          testID="product-put.submit.button"
+          onPress={handleSubmit(onSubmit)}
+        />
+      </S.Footer>
+    </PageContent>
   );
 }
