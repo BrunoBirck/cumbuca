@@ -87,8 +87,12 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
     <ToastContext.Provider value={{show: showToast}}>
       {children}
       {toast && (
-        <Animated.View style={[styles, {transform: [{translateY}]}]}>
-          <Typography color={textColor}>{toast.message}</Typography>
+        <Animated.View
+          testID="toast"
+          style={[styles, {transform: [{translateY}]}]}>
+          <Typography testID="toast.message" color={textColor}>
+            {toast.message}
+          </Typography>
         </Animated.View>
       )}
     </ToastContext.Provider>

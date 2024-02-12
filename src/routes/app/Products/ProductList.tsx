@@ -104,7 +104,7 @@ export function ProductList() {
   }, []);
 
   return (
-    <PageContent>
+    <PageContent testID="product-list.page">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <S.Container>
           <HeaderList />

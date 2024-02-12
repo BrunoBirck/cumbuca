@@ -118,6 +118,7 @@ export function SignIn() {
                 keyboardType="number-pad"
                 onEndEditing={handleVerifyBiometrics}
                 onSubmitEditing={handleVerifyBiometrics}
+                testID="cpf.input"
               />
               <ControlledInput
                 secureTextEntry
@@ -126,6 +127,7 @@ export function SignIn() {
                 name="password"
                 label="Senha"
                 onSubmitEditing={handleSubmit(onSubmit)}
+                testID="password.input"
               />
             </S.BoxWithGap>
             <S.BoxCentered>
@@ -134,6 +136,7 @@ export function SignIn() {
                 icon="signout"
                 loading={loading}
                 onPress={handleSubmit(onSubmit)}
+                testID="submit.button"
               />
             </S.BoxCentered>
           </S.Box>

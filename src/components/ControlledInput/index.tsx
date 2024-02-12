@@ -34,9 +34,12 @@ export function ControlledInput({
         )}
       />
       {!!errors && (
-        <S.ErrorContainer>
+        <S.ErrorContainer testID={`${rest.testID}.error`}>
           <Icon name="warning" width={18} height={18} />
-          <Typography variant="sm" color={theme.colors.error}>
+          <Typography
+            testID={`${rest.testID}.error.message`}
+            variant="sm"
+            color={theme.colors.error}>
             {errors.message}
           </Typography>
         </S.ErrorContainer>
