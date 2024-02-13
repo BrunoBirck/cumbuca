@@ -1,79 +1,145 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<h1 align="center">
+    <img alt="CumbucaDoBruno" title="#CumbucaDoBruno" src="./assets/cover.png" />
+</h1>
 
-# Getting Started
+<h4 align="center"> 
+	Cumbuca do Bruno 🚀
+</h4>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-layout">Layout</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-contribuidores">Arquitetura</a> • 
+ <a href="#-autor">Autor</a> • 
+</p>
 
-## Step 1: Start the Metro Server
+## 💻 Sobre o projeto
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Cumbuca do Bruno - este app é resultado de um desafio técnico proposto pela startup [Cumbuca](https://www.cumbuca.com/) para o cargo de Sr. React Native Engineer. A aplicação em si tem como propósito permitir ao usuário criar uma conta e cadastrar produtos, tudo persistido de forma local.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+---
+
+## ⚙️ Funcionalidades
+
+- [x] O usuário pode criar uma conta com CPF e senha válidos e reutilizar para login futuramente
+- [x] O app possui light e dark theme
+- [x] O app permite login com biometria
+- [x] O app permite a listagem, filtros e ordenação personalizada para os produtos cadastrados
+- [x] O app permite o cadastro de novos produtos
+- [x] O app possui persistência de dados no dispositivo
+
+---
+
+## 🎨 Layout
+
+O layout da aplicação está disponível no Figma:
+
+<a href="https://www.figma.com/file/FHwZMOEoMyStOzkHqgJwox/Technical-Test---Cumbuca?type=design&mode=design&t=pQazchhpQSBgTMg6-1">
+  <img alt="Made by tgmarinho" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
+
+### Screenshots
+
+<p align="center">
+  <img alt="CumbucaDoBruno" title="#CumbucaDoBruno" src="./assets/login.png" width="200px">
+
+  <img alt="CumbucaDoBruno" title="#CumbucaDoBruno" src="./assets/listagem-produtos.png" width="200px">
+
+  <img alt="CumbucaDoBruno" title="#CumbucaDoBruno" src="./assets/cadastro-produto.png" width="200px">
+</p>
+
+---
+
+## 🚀 Como executar o projeto
+
+Para executar o projeto você pode fazer o clone do projeto e rodar localmente ou se quiser, recomendo fortemente solicitar o acesso ao app para devices físicos, pois o mesmo foi gerado apk para android e versão de teste no apple testflight. Caso queira o apk para android basta [acessar o link](https://drive.google.com/file/d/1d_xuR8YDmCQt5L8tMmJJCH2SD7X9ZTNh/view?usp=sharing) e baixar, já para o iOS pode solicitar enviando um e-mail para bfbirck@gmail.com com nome, e-mail do icloud para teste e número de telefone.
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+#### 🧭 Rodando a aplicação
 
 ```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
+# Clone este repositório
+$ git clone git@github.com:BrunoBirck/cumbuca.git
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd cumbuca
+
+# Instale as dependências
+$ yarn
+
+# Instale os pods
+$ cd ios && pod install && cd ..
+
+# Inicie o metro
+$ yarn start
+
+# Execute no sistema iOS
+$ yarn ios
+
+# Execute no sistema android
+$ yarn android
+
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+#### 🧭 Rodando testes
 
 ```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
+# Para testes unitários
+$ yarn test
+
+# Para testes E2E ios
+$ yarn detox:build:ios && yarn detox:test:ios
+
+# Para testes E2E android
+$ yarn detox:build:android && yarn detox:test:android
+
 ```
 
-### For iOS
+---
 
-```bash
-# using npm
-npm run ios
+## 🛠 Tecnologias
 
-# OR using Yarn
-yarn ios
-```
+As seguintes ferramentas foram usadas na construção do projeto:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+#### **Mobile** ([React Native](http://www.reactnative.com/) + [TypeScript](https://www.typescriptlang.org/))
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+- **[React Navigation](https://reactnavigation.org/)**
+- **[React Hook Form](https://react-hook-form.com/)**
+- **[React Native Biometrics](https://www.npmjs.com/package/react-native-biometrics)**
+- **[React Native Bootsplash](https://github.com/zoontek/react-native-bootsplash)**
+- **[React Native MMKV](https://github.com/mrousavy/react-native-mmkv)**
+- **[Styled Components](https://styled-components.com/)**
+- **[Yup](https://github.com/jquense/yup)**
 
-## Step 3: Modifying your App
+> Veja o arquivo [package.json](https://github.com/BrunoBirck/cumbuca/blob/main/package.json)
 
-Now that you have successfully run the app, let's modify it.
+#### **Utilitários**
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- Protótipo: **[Figma](https://www.figma.com/)** → **[Protótipo (Cumbuca)](https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta)**
+- Editor: **[Visual Studio Code](https://code.visualstudio.com/)**
+- Markdown: **[StackEdit](https://stackedit.io/)**, **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
+- Commit Conventional: **[Commitlint](https://github.com/conventional-changelog/commitlint)**
+- Fontes: **[Poppins](https://fonts.google.com/specimen/Poppins)**
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+---
 
-## Congratulations! :tada:
+## 🦸 Autor
 
-You've successfully run and modified your React Native App. :partying_face:
+<a href="#">
+ <img style="border-radius: 50%;" src="https://postimg.cc/gn3tVJcX" width="100px;" alt=""/>
+ <br />
+ <sub><b>Bruno Birck</b></sub></a>
+ <br />
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/bruno-birck-4599791b5/)](https://www.linkedin.com/in/bruno-birck-4599791b5/)
+[![Gmail Badge](https://img.shields.io/badge/-bfbirck@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:bfbirck@gmail.com)](mailto:bfbirck@gmail.com)

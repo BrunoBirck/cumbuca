@@ -10,6 +10,7 @@
     "format": "prettier --write . --ignore-path .prettierignore",
     "start": "react-native start",
     "test": "jest",
+    "apk": "cd android && ./gradlew assembleRelease && cd ../",
     "detox:build:ios": "detox build --configuration ios.sim.debug",
     "detox:test:ios": "detox test --configuration ios.sim.debug",
     "detox:build:android": "detox build --configuration android.emu.debug",
