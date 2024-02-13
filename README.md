@@ -136,7 +136,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 🦸 Autor
 
 <a href="#">
- <a href='https://postimg.cc/gn3tVJcX' target='_blank'><img src='https://i.postimg.cc/fTP4ht6K/IMG-1679.avif' width="100px;" border='0' alt='IMG-1679'/></a>
+ <a href='https://postimg.cc/gn3tVJcX' target='_blank'><img src='https://i.postimg.cc/fTP4ht6K/IMG-1679.avif' width="100px;" style="border-radius: 50%;" alt='IMG-1679'/></a>
  <br />
  <sub><b>Bruno Birck</b></sub></a>
  <br />
