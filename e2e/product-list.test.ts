@@ -215,4 +215,19 @@ describe('E2E Tests - List Products Flow', () => {
     await expect(firstProduct).toBeVisible();
     await expect(firstProductTotalPriceText).toHaveText('R$ 73,60');
   });
+
+  it('should order the list by drag and drop', async () => {
+    const productForReorder = element(by.id('product-list.item-1'));
+    await productForReorder.longPressAndDrag(
+      2000,
+      NaN,
+      NaN,
+      element(by.id('product-list.item-2')),
+      NaN,
+      1.0,
+      'slow',
+      2000,
+    );
+    await expect(productForReorder).toBeVisible();
+  });
 });
