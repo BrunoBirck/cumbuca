@@ -1,20 +1,20 @@
-import React from 'react';
-import {SignIn} from './SignIn';
+import React from 'react'
 import {
   CardStyleInterpolators,
   createStackNavigator,
-} from '@react-navigation/stack';
-import {useTheme} from 'styled-components/native';
+} from '@react-navigation/stack'
+import {useTheme} from 'styled-components/native'
+import {SignIn} from './SignIn'
 
 export type AuthStack = {
-  signin: undefined;
-};
+  signin: undefined
+}
 
-const {Navigator, Screen} = createStackNavigator<AuthStack>();
+const {Navigator, Screen} = createStackNavigator<AuthStack>()
 
 export function Auth() {
-  const routes = [{component: SignIn, name: 'signin'}] as const;
-  const theme = useTheme();
+  const routes = [{component: SignIn, name: 'signin'}] as const
+  const theme = useTheme()
   return (
     <Navigator
       initialRouteName="signin"
@@ -27,5 +27,5 @@ export function Auth() {
         <Screen name={name} component={component} key={key} />
       ))}
     </Navigator>
-  );
+  )
 }

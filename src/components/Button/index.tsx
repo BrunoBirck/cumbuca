@@ -1,10 +1,10 @@
-import * as S from './styles';
-import {IButtonProps} from './types';
-import Typography from '../Typography';
-import {useTheme} from 'styled-components/native';
-import {ActivityIndicator} from 'react-native';
-import React from 'react';
-import {Icon} from '@components/Icon';
+import React from 'react'
+import {ActivityIndicator} from 'react-native'
+import {useTheme} from 'styled-components/native'
+import {Icon} from '@components/Icon'
+import * as S from './styles'
+import {IButtonProps} from './types'
+import Typography from '../Typography'
 
 export function Button({
   label,
@@ -16,13 +16,13 @@ export function Button({
   testID,
   ...props
 }: IButtonProps) {
-  const theme = useTheme();
+  const theme = useTheme()
   const color = () => {
     if (variant === 'danger') {
-      return theme.colors.white;
+      return theme.colors.white
     }
-    return theme.colors.text;
-  };
+    return theme.colors.text
+  }
   return (
     <S.Container
       testID={testID}
@@ -46,5 +46,5 @@ export function Button({
         <ActivityIndicator testID={`${testID}.loading`} color={color()} />
       )}
     </S.Container>
-  );
+  )
 }

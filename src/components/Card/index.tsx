@@ -1,6 +1,6 @@
-import React from 'react';
-import * as S from './styles';
-import {ICardProps} from './types';
+import React from 'react'
+import * as S from './styles'
+import {ICardProps} from './types'
 
 export function Card({
   children,
@@ -17,5 +17,5 @@ export function Card({
       isActive={isActive}>
       {children}
     </S.Container>
-  );
+  )
 }

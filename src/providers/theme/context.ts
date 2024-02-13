@@ -1,6 +1,6 @@
-import dark from '@theme/dark';
-import light from '@theme/light';
-import {createContext} from 'react';
+import {createContext} from 'react'
+import dark from '@theme/dark'
+import light from '@theme/light'
 
 export enum ThemeType {
   light = 'light',
@@ -10,14 +10,14 @@ export enum ThemeType {
 export const themes = {
   [ThemeType.light]: light,
   [ThemeType.dark]: dark,
-};
+}
 
 export interface ThemeContextData {
-  theme: ThemeType;
-  toggleTheme: () => void;
+  theme: ThemeType
+  toggleTheme: () => void
 }
 
 export const ThemeContext = createContext<ThemeContextData>({
   theme: ThemeType.light,
   toggleTheme: () => {},
-});
+})

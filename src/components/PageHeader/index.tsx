@@ -1,14 +1,14 @@
-import React from 'react';
-import * as S from './styles';
-import {TouchableOpacity, View} from 'react-native';
-import {Icon} from '@components/Icon';
-import Typography from '@components/Typography';
-import {IPageHeaderProps} from './types';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {AppStack} from '@routes/app';
+import React from 'react'
+import {TouchableOpacity, View} from 'react-native'
+import {NavigationProp, useNavigation} from '@react-navigation/native'
+import {Icon} from '@components/Icon'
+import Typography from '@components/Typography'
+import {AppStack} from '@routes/app'
+import * as S from './styles'
+import {IPageHeaderProps} from './types'
 
 export function PageHeader({title, testID}: IPageHeaderProps) {
-  const navigation = useNavigation<NavigationProp<AppStack>>();
+  const navigation = useNavigation<NavigationProp<AppStack>>()
 
   return (
     <S.Header testID={testID}>
@@ -23,5 +23,5 @@ export function PageHeader({title, testID}: IPageHeaderProps) {
       </Typography>
       <View />
     </S.Header>
-  );
+  )
 }

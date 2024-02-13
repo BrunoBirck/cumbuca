@@ -1,14 +1,14 @@
-import React from 'react';
-import * as S from '../styles';
-import Typography from '@components/Typography';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {Icon} from '@components/Icon';
-import {AppStack} from '@routes/app';
-import {useTheme} from 'styled-components/native';
+import React from 'react'
+import {NavigationProp, useNavigation} from '@react-navigation/native'
+import {useTheme} from 'styled-components/native'
+import {Icon} from '@components/Icon'
+import Typography from '@components/Typography'
+import {AppStack} from '@routes/app'
+import * as S from '../styles'
 
 export function HeaderList() {
-  const navigation = useNavigation<NavigationProp<AppStack>>();
-  const theme = useTheme();
+  const navigation = useNavigation<NavigationProp<AppStack>>()
+  const theme = useTheme()
   return (
     <S.Header>
       <S.HelloBox>
@@ -27,5 +27,5 @@ export function HeaderList() {
         />
       </S.SettingsButton>
     </S.Header>
-  );
+  )
 }

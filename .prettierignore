@@ -1,0 +1,8 @@
+node_modules/
+.bundle/
+android/
+assets/
+coverage/
+e2e/
+ios/
+vendor/

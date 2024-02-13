@@ -1,5 +1,5 @@
-import {ProductList} from './ProductList';
-import {ProductPut} from './ProductPut';
+import {ProductList} from './ProductList'
+import {ProductPut} from './ProductPut'
 
 const stack = [
   {
@@ -10,6 +10,6 @@ const stack = [
     component: ProductPut,
     name: 'product-put',
   },
-] as const;
+] as const
 
-export default {stack};
+export default {stack}

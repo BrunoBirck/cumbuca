@@ -1,17 +1,17 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {
   Animated,
   Easing,
   TextInput,
   TouchableWithoutFeedback,
-} from 'react-native';
-import * as S from './styles';
-import {IInputProps} from './types';
-import {Icon} from '@components/Icon';
-import {useTheme} from 'styled-components/native';
+} from 'react-native'
+import {useTheme} from 'styled-components/native'
+import {Icon} from '@components/Icon'
+import * as S from './styles'
+import {IInputProps} from './types'
 
 export function Input(props: IInputProps) {
-  const theme = useTheme();
+  const theme = useTheme()
   const {
     label,
     errorText,
@@ -20,14 +20,14 @@ export function Input(props: IInputProps) {
     onFocus,
     secureTextEntry,
     ...restOfProps
-  } = props;
-  const [isFocused, setIsFocused] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  } = props
+  const [isFocused, setIsFocused] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
-  const inputRef = useRef<typeof S.StyledTextInput>(null);
+  const inputRef = useRef<typeof S.StyledTextInput>(null)
   const focusAnim = useMemo(() => {
-    return new Animated.Value(0);
-  }, []);
+    return new Animated.Value(0)
+  }, [])
 
   useEffect(() => {
     Animated.timing(focusAnim, {
@@ -35,8 +35,8 @@ export function Input(props: IInputProps) {
       duration: 200,
       easing: Easing.inOut(Easing.ease),
       useNativeDriver: false,
-    }).start();
-  }, [focusAnim, isFocused, value]);
+    }).start()
+  }, [focusAnim, isFocused, value])
 
   const animatedStyle = {
     transform: [
@@ -62,20 +62,20 @@ export function Input(props: IInputProps) {
         }),
       },
     ],
-  };
+  }
 
   const iconName = useMemo(() => {
     if (errorText && showPassword) {
-      return 'eye-close-error';
+      return 'eye-close-error'
     }
     if (errorText && !showPassword) {
-      return 'eye-open-error';
+      return 'eye-open-error'
     }
     if (showPassword) {
-      return 'eye-close';
+      return 'eye-close'
     }
-    return 'eye-open';
-  }, [errorText, showPassword]);
+    return 'eye-open'
+  }, [errorText, showPassword])
 
   return (
     <S.Container>
@@ -84,12 +84,12 @@ export function Input(props: IInputProps) {
         {...restOfProps}
         value={value}
         onBlur={event => {
-          setIsFocused(false);
-          onBlur?.(event);
+          setIsFocused(false)
+          onBlur?.(event)
         }}
         onFocus={event => {
-          setIsFocused(true);
-          onFocus?.(event);
+          setIsFocused(true)
+          onFocus?.(event)
         }}
         error={!!restOfProps.error}
         isFocused={isFocused}
@@ -117,5 +117,5 @@ export function Input(props: IInputProps) {
         </S.LabelContainer>
       </TouchableWithoutFeedback>
     </S.Container>
-  );
+  )
 }

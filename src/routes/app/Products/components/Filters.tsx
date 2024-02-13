@@ -1,15 +1,15 @@
-import React from 'react';
-import * as S from '../styles';
-import Typography from '@components/Typography';
-import {Badge} from '@components/Badge';
-import {Input} from '@components/Input';
-import {useTheme} from 'styled-components/native';
+import React from 'react'
+import {useTheme} from 'styled-components/native'
+import {Badge} from '@components/Badge'
+import {Input} from '@components/Input'
+import Typography from '@components/Typography'
+import * as S from '../styles'
 
 export interface IFilterProps {
-  search?: string;
-  setSearch: (value: string) => void;
-  orderBy: string;
-  handleSelectOrderBy: (order: string) => void;
+  search?: string
+  setSearch: (value: string) => void
+  orderBy: string
+  handleSelectOrderBy: (order: string) => void
 }
 
 export function Filters({
@@ -18,7 +18,7 @@ export function Filters({
   orderBy,
   handleSelectOrderBy,
 }: IFilterProps) {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <S.Filters>
       <Input
@@ -65,5 +65,5 @@ export function Filters({
         </S.ProductOrderByList>
       </S.Box>
     </S.Filters>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import {TextProps} from 'react-native';
+import {TextProps} from 'react-native'
 
 export interface ITypographyStylesProps extends TextProps {
-  variant?: 'sm' | 'md' | 'lg' | 'xl';
-  semibold?: boolean;
-  color?: string;
-  textAlign?: 'left' | 'center' | 'right';
+  variant?: 'sm' | 'md' | 'lg' | 'xl'
+  semibold?: boolean
+  color?: string
+  textAlign?: 'left' | 'center' | 'right'
 }
 
 export interface ITypographyProps extends ITypographyStylesProps {}

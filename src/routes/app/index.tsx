@@ -1,30 +1,30 @@
-import React from 'react';
-import groups from './groups';
-import {useTheme} from 'styled-components/native';
+import React from 'react'
 import {
   CardStyleInterpolators,
   createStackNavigator,
   TransitionPresets,
-} from '@react-navigation/stack';
-import {StackHeaderMode} from '@react-navigation/stack/lib/typescript/src/types';
+} from '@react-navigation/stack'
+import {StackHeaderMode} from '@react-navigation/stack/lib/typescript/src/types'
+import {useTheme} from 'styled-components/native'
+import groups from './groups'
 
 export type AppStack = {
-  'product-list': undefined;
-  'product-put': undefined;
-  settings: undefined;
-};
+  'product-list': undefined
+  'product-put': undefined
+  settings: undefined
+}
 
-const {Navigator, Screen, Group} = createStackNavigator<AppStack>();
+const {Navigator, Screen, Group} = createStackNavigator<AppStack>()
 
 export function App() {
-  const theme = useTheme();
+  const theme = useTheme()
   const CARD_DEFAULT_OPTIONS = {
     ...TransitionPresets.SlideFromRightIOS,
     cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
     animationEnabled: true,
     headerMode: 'screen' as StackHeaderMode,
     cardStyle: {backgroundColor: theme.colors.background},
-  };
+  }
   return (
     <Navigator
       screenOptions={{
@@ -43,11 +43,11 @@ export function App() {
                   component={screen.component}
                   key={`group-${key}-${screen.name}`}
                 />
-              );
+              )
             })}
           </Group>
-        );
+        )
       })}
     </Navigator>
-  );
+  )
 }

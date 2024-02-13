@@ -1,36 +1,36 @@
-import useTheme from '@providers/theme/useTheme';
-import React from 'react';
-import {Image} from 'react-native';
+import React from 'react'
+import {Image} from 'react-native'
+import useTheme from '@providers/theme/useTheme'
 
-import arrowLeftLight from '@assets/light/arrow-left.png';
-import eyeCloseErrorLight from '@assets/light/eye-close-error.png';
-import eyeCloseLight from '@assets/light/eye-close.png';
-import eyeOpenErrorLight from '@assets/light/eye-open-error.png';
-import eyeOpenLight from '@assets/light/eye-open.png';
-import lessErrorLight from '@assets/light/less.png';
-import plusLight from '@assets/light/plus.png';
-import settingsLight from '@assets/light/settings.png';
-import signoutLight from '@assets/light/signout.png';
-import trashLight from '@assets/light/trash.png';
-import warningLight from '@assets/light/warning.png';
-import logoLight from '@assets/light/logo.png';
-import boxLight from '@assets/light/ic_box.png';
+import arrowLeftLight from '@assets/light/arrow-left.png'
+import eyeCloseErrorLight from '@assets/light/eye-close-error.png'
+import eyeCloseLight from '@assets/light/eye-close.png'
+import eyeOpenErrorLight from '@assets/light/eye-open-error.png'
+import eyeOpenLight from '@assets/light/eye-open.png'
+import lessErrorLight from '@assets/light/less.png'
+import plusLight from '@assets/light/plus.png'
+import settingsLight from '@assets/light/settings.png'
+import signoutLight from '@assets/light/signout.png'
+import trashLight from '@assets/light/trash.png'
+import warningLight from '@assets/light/warning.png'
+import logoLight from '@assets/light/logo.png'
+import boxLight from '@assets/light/ic_box.png'
 
-import arrowLeftDark from '@assets/dark/arrow-left.png';
-import eyeCloseErrorDark from '@assets/dark/eye-close-error.png';
-import eyeCloseDark from '@assets/dark/eye-close.png';
-import eyeOpenErrorDark from '@assets/dark/eye-open-error.png';
-import eyeOpenDark from '@assets/dark/eye-open.png';
-import lessErroDark from '@assets/dark/less.png';
-import plusDark from '@assets/dark/plus.png';
-import settingsDark from '@assets/dark/settings.png';
-import signoutDark from '@assets/dark/signout.png';
-import trashDark from '@assets/dark/trash.png';
-import warningDark from '@assets/dark/warning.png';
-import logoDark from '@assets/light/logo.png';
-import boxDark from '@assets/light/ic_box.png';
+import arrowLeftDark from '@assets/dark/arrow-left.png'
+import eyeCloseErrorDark from '@assets/dark/eye-close-error.png'
+import eyeCloseDark from '@assets/dark/eye-close.png'
+import eyeOpenErrorDark from '@assets/dark/eye-open-error.png'
+import eyeOpenDark from '@assets/dark/eye-open.png'
+import lessErroDark from '@assets/dark/less.png'
+import plusDark from '@assets/dark/plus.png'
+import settingsDark from '@assets/dark/settings.png'
+import signoutDark from '@assets/dark/signout.png'
+import trashDark from '@assets/dark/trash.png'
+import warningDark from '@assets/dark/warning.png'
+import logoDark from '@assets/light/logo.png'
+import boxDark from '@assets/light/ic_box.png'
 
-import {IIconProps} from './types';
+import {IIconProps} from './types'
 
 const lightIcons = {
   'arrow-left': arrowLeftLight,
@@ -46,7 +46,7 @@ const lightIcons = {
   warning: warningLight,
   logo: logoLight,
   box: boxLight,
-};
+}
 
 const darkIcons = {
   'arrow-left': arrowLeftDark,
@@ -62,11 +62,11 @@ const darkIcons = {
   warning: warningDark,
   logo: logoDark,
   box: boxDark,
-};
+}
 
 export function Icon({name, width = 18, height = 18, testID}: IIconProps) {
-  const {theme} = useTheme();
-  const icon = theme === 'light' ? lightIcons[name] : darkIcons[name];
+  const {theme} = useTheme()
+  const icon = theme === 'light' ? lightIcons[name] : darkIcons[name]
 
-  return <Image testID={testID} source={icon} style={{width, height}} />;
+  return <Image testID={testID} source={icon} style={{width, height}} />
 }

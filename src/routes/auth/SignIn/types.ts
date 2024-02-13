@@ -1,4 +1,4 @@
 export interface ISignInPutForm {
-  cpf: string;
-  password: string;
+  cpf: string
+  password: string
 }

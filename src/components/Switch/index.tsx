@@ -1,10 +1,10 @@
-import React, {useEffect, useRef} from 'react';
-import {Animated, Easing} from 'react-native';
-import * as S from './styles';
-import {ISwitchProps} from './types';
+import React, {useEffect, useRef} from 'react'
+import {Animated, Easing} from 'react-native'
+import * as S from './styles'
+import {ISwitchProps} from './types'
 
 export function Switch({value, onValueChange, testID}: ISwitchProps) {
-  const translateX = useRef(new Animated.Value(value ? 25 : 0)).current;
+  const translateX = useRef(new Animated.Value(value ? 25 : 0)).current
 
   const handlePress = () => {
     Animated.timing(translateX, {
@@ -12,16 +12,16 @@ export function Switch({value, onValueChange, testID}: ISwitchProps) {
       duration: 150,
       easing: Easing.linear,
       useNativeDriver: false,
-    }).start();
+    }).start()
 
     setTimeout(() => {
-      onValueChange(!value);
-    }, 150);
-  };
+      onValueChange(!value)
+    }, 150)
+  }
 
   const animatedStyle = {
     transform: [{translateX}],
-  };
+  }
 
   useEffect(() => {
     Animated.timing(translateX, {
@@ -29,8 +29,8 @@ export function Switch({value, onValueChange, testID}: ISwitchProps) {
       duration: 150,
       easing: Easing.linear,
       useNativeDriver: false,
-    }).start();
-  }, [value, translateX]);
+    }).start()
+  }, [value, translateX])
 
   return (
     <S.Wrapper>
@@ -38,5 +38,5 @@ export function Switch({value, onValueChange, testID}: ISwitchProps) {
         <S.Handle style={animatedStyle} />
       </S.SwitchContainer>
     </S.Wrapper>
-  );
+  )
 }

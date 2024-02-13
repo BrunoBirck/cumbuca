@@ -1,18 +1,18 @@
-import styled from 'styled-components/native';
-import {IButtonStylesProp} from './types';
+import styled from 'styled-components/native'
+import {IButtonStylesProp} from './types'
 
 export const Container = styled.Pressable<IButtonStylesProp>`
   display: flex;
   background-color: ${({variant, theme}) => {
     switch (variant) {
       case 'primary':
-        return theme.colors.primary;
+        return theme.colors.primary
       case 'primary-rounded':
-        return theme.colors.primary;
+        return theme.colors.primary
       case 'danger':
-        return theme.colors.error;
+        return theme.colors.error
       default:
-        return theme.colors.primary;
+        return theme.colors.primary
     }
   }};
   width: ${({width}) => width};
@@ -23,4 +23,4 @@ export const Container = styled.Pressable<IButtonStylesProp>`
     variant === 'primary-rounded' ? '55px' : '12px'};
   padding: 10px;
   flex-direction: row;
-`;
+`

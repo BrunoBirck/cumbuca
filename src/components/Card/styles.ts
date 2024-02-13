@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from 'styled-components/native'
 
 export const Container = styled.Pressable<{isActive?: boolean}>`
   width: 100%;
@@ -9,4 +9,4 @@ export const Container = styled.Pressable<{isActive?: boolean}>`
   background-color: ${({theme}) => theme.colors.background};
   padding: ${({theme}) => theme.spacers['sm-2']};
   gap: ${({theme}) => theme.spacers['sm-2']};
-`;
+`

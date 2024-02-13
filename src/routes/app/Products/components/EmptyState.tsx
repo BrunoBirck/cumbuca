@@ -1,11 +1,11 @@
-import {Icon} from '@components/Icon';
-import Typography from '@components/Typography';
-import React from 'react';
-import {useTheme} from 'styled-components/native';
-import * as S from './styles';
+import React from 'react'
+import {useTheme} from 'styled-components/native'
+import {Icon} from '@components/Icon'
+import Typography from '@components/Typography'
+import * as S from './styles'
 
 export function EmptyState() {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <S.BoxEmptyStateContainer>
       <S.BoxEmptyStateHeader>
@@ -16,5 +16,5 @@ export function EmptyState() {
         <Typography>Nenhum produto encontrado.</Typography>
       </S.BoxEmptyStateHeader>
     </S.BoxEmptyStateContainer>
-  );
+  )
 }

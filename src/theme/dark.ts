@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import {Platform} from 'react-native'
 
 const dark = {
   colors: {
@@ -49,6 +49,6 @@ const dark = {
     regular: 400,
     semibold: Platform.OS === 'ios' ? 600 : 700,
   },
-};
+}
 
-export default dark;
+export default dark

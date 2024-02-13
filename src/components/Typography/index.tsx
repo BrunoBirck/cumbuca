@@ -1,7 +1,7 @@
-import {useTheme} from 'styled-components/native';
-import * as S from './styles';
-import {ITypographyProps} from './types';
-import React from 'react';
+import React from 'react'
+import {useTheme} from 'styled-components/native'
+import * as S from './styles'
+import {ITypographyProps} from './types'
 
 export default function Typography({
   variant = 'md',
@@ -12,7 +12,7 @@ export default function Typography({
   textAlign,
   testID,
 }: ITypographyProps) {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <S.Typography
       testID={testID}
@@ -23,5 +23,5 @@ export default function Typography({
       semibold={semibold}>
       {children}
     </S.Typography>
-  );
+  )
 }

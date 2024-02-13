@@ -1,22 +1,20 @@
-import {useTheme} from 'styled-components/native';
-import Typography from '../Typography';
-import * as S from './styles';
-import React, {useMemo} from 'react';
-import {IBadgeProps} from './types';
+import React, {useMemo} from 'react'
+import {useTheme} from 'styled-components/native'
+import * as S from './styles'
+import {IBadgeProps} from './types'
+import Typography from '../Typography'
 
 export function Badge({text, testID, onPress, selected}: IBadgeProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const {badgeColor, borderColor, textColor} = useMemo(() => {
     const textColor = selected
       ? theme.colors.background
-      : theme.colors.placeholder;
-    const badgeColor = selected
-      ? theme.colors.primary
-      : theme.colors.background;
-    const borderColor = selected ? theme.colors.primary : theme.colors.border;
-    return {textColor, badgeColor, borderColor};
-  }, [theme, selected]);
+      : theme.colors.placeholder
+    const badgeColor = selected ? theme.colors.primary : theme.colors.background
+    const borderColor = selected ? theme.colors.primary : theme.colors.border
+    return {textColor, badgeColor, borderColor}
+  }, [theme, selected])
 
   return (
     <S.BadgeContainer
@@ -33,5 +31,5 @@ export function Badge({text, testID, onPress, selected}: IBadgeProps) {
         {text}
       </Typography>
     </S.BadgeContainer>
-  );
+  )
 }

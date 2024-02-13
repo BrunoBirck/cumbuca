@@ -1,4 +1,4 @@
 export interface IPageHeaderProps {
-  title: string;
-  testID?: string;
+  title: string
+  testID?: string
 }

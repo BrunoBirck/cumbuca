@@ -1,19 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {CellRendererProps} from './types';
-import {useDragListContext} from './context';
-import {Animated, Easing, LayoutChangeEvent, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react'
+import {Animated, Easing, LayoutChangeEvent, View} from 'react-native'
+import {useDragListContext} from './context'
+import {CellRendererProps} from './types'
 
-const SLIDE_MILLIS = 300;
+const SLIDE_MILLIS = 300
 
 export function CellRendererComponent<T>(props: CellRendererProps<T>) {
-  const {item, index, children, style, onLayout, ...rest} = props;
+  const {item, index, children, style, onLayout, ...rest} = props
   const {keyExtractor, activeKey, activeIndex, pan, panIndex, layouts} =
-    useDragListContext<T>();
-  const [isOffset, setIsOffset] = useState(false);
-  const key = keyExtractor(item, index);
-  const isActive = key === activeKey;
-  const ref = useRef<View>(null);
-  const anim = useRef(new Animated.Value(0)).current;
+    useDragListContext<T>()
+  const [isOffset, setIsOffset] = useState(false)
+  const key = keyExtractor(item, index)
+  const isActive = key === activeKey
+  const ref = useRef<View>(null)
+  const anim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
     if (activeKey && !isActive && layouts.hasOwnProperty(activeKey)) {
@@ -23,25 +23,25 @@ export function CellRendererComponent<T>(props: CellRendererProps<T>) {
           easing: Easing.inOut(Easing.linear),
           toValue: layouts[activeKey].height,
           useNativeDriver: true,
-        }).start();
-        setIsOffset(true);
-        return;
+        }).start()
+        setIsOffset(true)
+        return
       } else if (index >= activeIndex && index <= panIndex) {
         Animated.timing(anim, {
           duration: SLIDE_MILLIS,
           easing: Easing.inOut(Easing.linear),
           toValue: -layouts[activeKey].height,
           useNativeDriver: true,
-        }).start();
-        setIsOffset(true);
-        return;
+        }).start()
+        setIsOffset(true)
+        return
       }
     }
     if (!activeKey) {
-      anim.setValue(0);
+      anim.setValue(0)
     }
-    setIsOffset(false);
-  }, [activeKey, index, panIndex, key, activeIndex, isActive, layouts, anim]);
+    setIsOffset(false)
+  }, [activeKey, index, panIndex, key, activeIndex, isActive, layouts, anim])
 
   useEffect(() => {
     if (!isOffset) {
@@ -50,16 +50,16 @@ export function CellRendererComponent<T>(props: CellRendererProps<T>) {
         easing: Easing.inOut(Easing.linear),
         toValue: 0,
         useNativeDriver: true,
-      }).start();
+      }).start()
     }
-  }, [anim, isOffset]);
+  }, [anim, isOffset])
 
   function onCellLayout(evt: LayoutChangeEvent) {
     if (onLayout) {
-      onLayout(evt);
+      onLayout(evt)
     }
 
-    layouts[key] = {...evt.nativeEvent.layout};
+    layouts[key] = {...evt.nativeEvent.layout}
   }
 
   return (
@@ -80,5 +80,5 @@ export function CellRendererComponent<T>(props: CellRendererProps<T>) {
       onLayout={onCellLayout}>
       {children}
     </Animated.View>
-  );
+  )
 }

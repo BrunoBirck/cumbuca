@@ -15,8 +15,8 @@ export enum IconName {
 }
 
 export interface IIconProps {
-  name: keyof typeof IconName;
-  width: number;
-  height: number;
-  testID?: string;
+  name: keyof typeof IconName
+  width: number
+  height: number
+  testID?: string
 }

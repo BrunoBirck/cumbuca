@@ -1,25 +1,25 @@
-import React, {useState, useEffect, useMemo, useCallback} from 'react';
-import {ViewStyle, Animated, Easing} from 'react-native';
-import Typography from '@components/Typography';
-import {useTheme} from 'styled-components/native';
-import {ToastContext, ToastProps} from './context';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import React, {useState, useEffect, useMemo, useCallback} from 'react'
+import {ViewStyle, Animated, Easing} from 'react-native'
+import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import {useTheme} from 'styled-components/native'
+import Typography from '@components/Typography'
+import {ToastContext, ToastProps} from './context'
 
 export function ToastProvider({children}: {children: React.ReactNode}) {
   const translateY = useMemo(() => {
-    return new Animated.Value(-100);
-  }, []);
-  const theme = useTheme();
-  const insets = useSafeAreaInsets();
+    return new Animated.Value(-100)
+  }, [])
+  const theme = useTheme()
+  const insets = useSafeAreaInsets()
 
-  const [toast, setToast] = useState<ToastProps | null>(null);
+  const [toast, setToast] = useState<ToastProps | null>(null)
 
   const showToast = useCallback(
     (message: string, variant: 'success' | 'error' | 'info' = 'info') => {
-      setToast({message, variant});
+      setToast({message, variant})
     },
     [],
-  );
+  )
 
   const styles = useMemo((): ViewStyle => {
     const baseStyles: ViewStyle = {
@@ -33,32 +33,32 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
       paddingHorizontal: theme.spacersRaw['md-1'],
       justifyContent: 'flex-end',
       alignItems: 'center',
-    };
+    }
 
     switch (toast?.variant) {
       case 'success':
-        return {...baseStyles, backgroundColor: theme.colors.success};
+        return {...baseStyles, backgroundColor: theme.colors.success}
       case 'error':
-        return {...baseStyles, backgroundColor: theme.colors.error};
+        return {...baseStyles, backgroundColor: theme.colors.error}
       case 'info':
-        return {...baseStyles, backgroundColor: theme.colors.background};
+        return {...baseStyles, backgroundColor: theme.colors.background}
       default:
-        return baseStyles;
+        return baseStyles
     }
-  }, [insets, theme, toast]);
+  }, [insets, theme, toast])
 
   const textColor = useMemo(() => {
     switch (toast?.variant) {
       case 'success':
-        return theme.colors.white;
+        return theme.colors.white
       case 'error':
-        return theme.colors.white;
+        return theme.colors.white
       case 'info':
-        return theme.colors.text;
+        return theme.colors.text
       default:
-        return theme.colors.text;
+        return theme.colors.text
     }
-  }, [theme, toast?.variant]);
+  }, [theme, toast?.variant])
 
   useEffect(() => {
     if (toast) {
@@ -67,21 +67,21 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
         duration: 200,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: false,
-      }).start();
+      }).start()
 
       const timer = setTimeout(() => {
-        setToast(null);
-      }, 3000);
-      return () => clearTimeout(timer);
+        setToast(null)
+      }, 3000)
+      return () => clearTimeout(timer)
     } else {
       Animated.timing(translateY, {
         toValue: -100,
         duration: 200,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: false,
-      }).start();
+      }).start()
     }
-  }, [toast, translateY]);
+  }, [toast, translateY])
 
   return (
     <ToastContext.Provider value={{show: showToast}}>
@@ -96,5 +96,5 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
         </Animated.View>
       )}
     </ToastContext.Provider>
-  );
+  )
 }

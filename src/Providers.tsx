@@ -1,9 +1,9 @@
-import React from 'react';
-import {AuthProvider} from '@providers/authorization';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {ThemeProvider} from '@providers/theme';
-import {ToastProvider} from '@providers/toast';
+import React from 'react'
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
+import {AuthProvider} from '@providers/authorization'
+import {ThemeProvider} from '@providers/theme'
+import {ToastProvider} from '@providers/toast'
 
 export function Providers({children}: {children: React.ReactNode}) {
   return (
@@ -16,5 +16,5 @@ export function Providers({children}: {children: React.ReactNode}) {
         </ThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
-  );
+  )
 }

@@ -1,32 +1,29 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "baseUrl": "." ,
-   "paths": {
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@providers/*": [
-        "src/providers/*"
-      ],
-      "@routes/*": [
-        "src/routes/*"
-      ],
-      "@services/*": [
-        "src/services/*"
-      ],
-      "@theme/*": [
-        "src/theme/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ]
-   },
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@providers/*": ["src/providers/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@theme/*": ["src/theme/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "extends": "@react-native/typescript-config/tsconfig.json",
-  "include": ["./**/*.ts", "./**/*.tsx", "./styled.d.ts", "./src/index.d.ts", "declarations.d.ts"],
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./styled.d.ts",
+    "./src/index.d.ts",
+    "declarations.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }

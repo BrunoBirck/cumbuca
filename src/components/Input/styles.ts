@@ -1,14 +1,14 @@
-import styled from 'styled-components/native';
-import {Animated} from 'react-native';
+import {Animated} from 'react-native'
+import styled from 'styled-components/native'
 
 export const Container = styled.View`
   width: 100%;
-`;
+`
 
 export const StyledTextInput = styled.TextInput<{
-  error?: boolean;
-  isFocused?: boolean;
-  ref?: React.RefObject<any>;
+  error?: boolean
+  isFocused?: boolean
+  ref?: React.RefObject<any>
 }>`
   padding: ${({theme}) => theme.spacers['md-1']};
   border-bottom-width: 2px;
@@ -22,12 +22,12 @@ export const StyledTextInput = styled.TextInput<{
       : props.isFocused
       ? props.theme.colors.primary
       : props.theme.colors.placeholder};
-`;
+`
 
 export const LabelContainer = styled(Animated.View)`
   position: absolute;
   padding-horizontal: ${({theme}) => theme.spacers['sm-2']};
-`;
+`
 
 export const StyledLabel = styled.Text<{error?: boolean; isFocused?: boolean}>`
   font-family: 'Poppins-Semibold';
@@ -39,7 +39,7 @@ export const StyledLabel = styled.Text<{error?: boolean; isFocused?: boolean}>`
       : props.isFocused
       ? props.theme.colors.primary
       : props.theme.colors.placeholder};
-`;
+`
 
 export const ErrorText = styled.Text`
   margin-top: ${({theme}) => theme.spacers['sm-1']};
@@ -48,7 +48,7 @@ export const ErrorText = styled.Text`
   color: ${props => props.theme.colors.error};
   font-family: 'Poppins-Semibold';
   font-weight: ${props => props.theme.fontWeights.semibold};
-`;
+`
 
 export const IconContainer = styled.View`
   position: absolute;
@@ -56,4 +56,4 @@ export const IconContainer = styled.View`
   right: ${({theme}) => theme.spacers['sm-3']};
   padding: 10px;
   z-index: 1;
-`;
+`

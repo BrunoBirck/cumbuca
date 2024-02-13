@@ -1,10 +1,10 @@
-import {Settings} from './Settings';
+import {Settings} from './Settings'
 
 const stack = [
   {
     component: Settings,
     name: 'settings',
   },
-] as const;
+] as const
 
-export default {stack};
+export default {stack}

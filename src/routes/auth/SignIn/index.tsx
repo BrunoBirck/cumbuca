@@ -1,31 +1,32 @@
-import {Button} from '@components/Button';
-import {ControlledInput} from '@components/ControlledInput';
-import {Icon} from '@components/Icon';
-import PageContent from '@components/PageContent';
-import Typography from '@components/Typography';
-import React, {useCallback} from 'react';
-import {useForm} from 'react-hook-form';
-import * as S from './styles';
+import React, {useCallback} from 'react'
 import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-} from 'react-native';
-import * as yup from 'yup';
-import {ISignInPutForm} from './types';
-import {yupResolver} from '@hookform/resolvers/yup';
-import useAuth from '@providers/authorization/useAuth';
-import {formatCPF, isValidCpf} from '@utils/validateCpf';
-import {useToast} from '@providers/toast/useToast';
-import {getUser} from '@services/storage';
-import ReactNativeBiometrics from 'react-native-biometrics';
+} from 'react-native'
+import {yupResolver} from '@hookform/resolvers/yup'
+import ReactNativeBiometrics from 'react-native-biometrics'
+import {useForm} from 'react-hook-form'
+import * as yup from 'yup'
+import {Button} from '@components/Button'
+import {ControlledInput} from '@components/ControlledInput'
+import {Icon} from '@components/Icon'
+import PageContent from '@components/PageContent'
+import Typography from '@components/Typography'
+import useAuth from '@providers/authorization/useAuth'
+import {useToast} from '@providers/toast/useToast'
+import {getUser} from '@services/storage'
+import {formatCPF, isValidCpf} from '@utils/validateCpf'
+import * as S from './styles'
+import {ISignInPutForm} from './types'
 
-const rnBiometrics = new ReactNativeBiometrics();
+
+const rnBiometrics = new ReactNativeBiometrics()
 
 export function SignIn() {
-  const {signIn, loading} = useAuth();
-  const {show} = useToast();
+  const {signIn, loading} = useAuth()
+  const {show} = useToast()
   const schema = yup.object({
     cpf: yup
       .string()
@@ -36,7 +37,7 @@ export function SignIn() {
       .string()
       .required('Campo obrigatório')
       .min(8, 'A senha precisa ter no mínimo 8 dígitos'),
-  });
+  })
   const {
     control,
     handleSubmit,
@@ -44,46 +45,46 @@ export function SignIn() {
     formState: {errors},
   } = useForm<ISignInPutForm>({
     resolver: yupResolver(schema),
-  });
+  })
   const onSubmit = useCallback(
     async (data: ISignInPutForm) => {
-      Keyboard.dismiss();
+      Keyboard.dismiss()
       try {
-        const response = await signIn(data.cpf, data.password);
+        const response = await signIn(data.cpf, data.password)
         if (response instanceof Error) {
-          throw new Error(response.message);
+          throw new Error(response.message)
         }
       } catch (error) {
         if (error instanceof Error) {
-          show(error.message, 'error');
+          show(error.message, 'error')
         }
       }
     },
     [show, signIn],
-  );
+  )
 
   const handleVerifyBiometrics = useCallback(async () => {
-    Keyboard.dismiss();
-    const cpf = getValues('cpf');
-    const user = getUser(cpf);
+    Keyboard.dismiss()
+    const cpf = getValues('cpf')
+    const user = getUser(cpf)
     if (user?.isBiometricActive) {
       const {success} = await rnBiometrics.simplePrompt({
         promptMessage: 'Login com biometria',
-      });
+      })
       if (success) {
         try {
-          const response = await signIn(cpf, user.password);
+          const response = await signIn(cpf, user.password)
           if (response instanceof Error) {
-            throw new Error(response.message);
+            throw new Error(response.message)
           }
         } catch (error) {
           if (error instanceof Error) {
-            show(error.message, 'error');
+            show(error.message, 'error')
           }
         }
       }
     }
-  }, [getValues, show, signIn]);
+  }, [getValues, show, signIn])
 
   return (
     <KeyboardAvoidingView
@@ -143,5 +144,5 @@ export function SignIn() {
         </PageContent>
       </ScrollView>
     </KeyboardAvoidingView>
-  );
+  )
 }

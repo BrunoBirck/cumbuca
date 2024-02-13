@@ -1,13 +1,13 @@
-import {Card} from '@components/Card';
-import {Icon} from '@components/Icon';
-import Typography from '@components/Typography';
-import React from 'react';
-import {Pressable, TouchableOpacity} from 'react-native';
-import {useTheme} from 'styled-components/native';
-import * as S from './styles';
-import {IProduct} from 'src/types/Product';
-import {formatMoney} from '@utils/formatMoney';
-import {removeProduct, updateProductQuantity} from '@services/storage';
+import React from 'react'
+import {Pressable, TouchableOpacity} from 'react-native'
+import {useTheme} from 'styled-components/native'
+import {Card} from '@components/Card'
+import {Icon} from '@components/Icon'
+import Typography from '@components/Typography'
+import {removeProduct, updateProductQuantity} from '@services/storage'
+import {formatMoney} from '@utils/formatMoney'
+import {IProduct} from 'src/types/Product'
+import * as S from './styles'
 
 export function ProductCard({
   product,
@@ -16,13 +16,13 @@ export function ProductCard({
   isActive,
   testID,
 }: {
-  product: IProduct;
-  isActive?: boolean;
-  onLongPress?: () => void;
-  onPressOut?: () => void;
-  testID?: string;
+  product: IProduct
+  isActive?: boolean
+  onLongPress?: () => void
+  onPressOut?: () => void
+  testID?: string
 }) {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <Card
       testID={testID}
@@ -111,5 +111,5 @@ export function ProductCard({
         </S.TrashBox>
       </S.Container>
     </Card>
-  );
+  )
 }

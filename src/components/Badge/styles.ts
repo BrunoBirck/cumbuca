@@ -1,8 +1,8 @@
-import styled from 'styled-components/native';
+import styled from 'styled-components/native'
 
 export const BadgeContainer = styled.TouchableOpacity<{
-  backgroundColor: string;
-  borderColor: string;
+  backgroundColor: string
+  borderColor: string
 }>`
   flex-direction: row;
   align-items: center;
@@ -12,4 +12,4 @@ export const BadgeContainer = styled.TouchableOpacity<{
   border-radius: ${({theme}) => theme.spacers['sm-2']};
   padding: ${({theme}) => `${theme.spacers['sm-1']} ${theme.spacers['sm-2']}`};
   gap: ${({theme}) => theme.spacers['sm-1']};
-`;
+`

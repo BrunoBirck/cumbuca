@@ -1,8 +1,8 @@
-import React from 'react';
-import {ActivityIndicator} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import * as S from './styles';
-import {IPageContentProps} from './types';
+import React from 'react'
+import {ActivityIndicator} from 'react-native'
+import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import * as S from './styles'
+import {IPageContentProps} from './types'
 
 export default function PageContent({
   children,
@@ -12,7 +12,7 @@ export default function PageContent({
   testID,
   noPaddingTop,
 }: IPageContentProps) {
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets()
   return (
     <S.Container testID={testID} paddingTop={noPaddingTop ? 0 : insets.top}>
       <S.SubContainer testID={`${testID}.child.1`}>
@@ -24,5 +24,5 @@ export default function PageContent({
         </S.Content>
       </S.SubContainer>
     </S.Container>
-  );
+  )
 }

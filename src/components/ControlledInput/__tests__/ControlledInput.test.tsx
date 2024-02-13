@@ -1,10 +1,10 @@
-import React from 'react';
-import {render} from '@testing-library/react-native';
-import {useForm} from 'react-hook-form';
-import {ControlledInput} from '..';
-import {ThemeProvider as ThemeProviderStyled} from 'styled-components/native';
-import {themes} from '@providers/theme/context';
-import {ThemeProvider} from '@providers/theme';
+import React from 'react'
+import {render} from '@testing-library/react-native'
+import {useForm} from 'react-hook-form'
+import {ControlledInput} from '..'
+import {ThemeProvider as ThemeProviderStyled} from 'styled-components/native'
+import {themes} from '@providers/theme/context'
+import {ThemeProvider} from '@providers/theme'
 
 const renderWithTheme = (component: any) => {
   return render(
@@ -13,14 +13,14 @@ const renderWithTheme = (component: any) => {
         {component}
       </ThemeProviderStyled>
     </ThemeProvider>,
-  );
-};
+  )
+}
 
 describe('ControlledInput', () => {
   const Wrapper = ({children}) => {
-    const {control} = useForm();
-    return children(control);
-  };
+    const {control} = useForm()
+    return children(control)
+  }
 
   it('should show the error message when provided', () => {
     const {getByText} = renderWithTheme(
@@ -34,7 +34,7 @@ describe('ControlledInput', () => {
           />
         )}
       </Wrapper>,
-    );
-    expect(getByText('Test error')).toBeTruthy();
-  });
-});
+    )
+    expect(getByText('Test error')).toBeTruthy()
+  })
+})
