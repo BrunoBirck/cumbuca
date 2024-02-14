@@ -29,17 +29,19 @@ export function Settings() {
 
   const handleToggleBiometric = useCallback(async () => {
     try {
-      const biometryType = await rnBiometrics.isSensorAvailable()
-      if (!biometryType.available) {
-        show('Biometria não disponível', 'error')
-        return
-      }
       const newBiometricsState = !isBiometricsActive
       setIsBiometricsActive(newBiometricsState)
 
       const updateBiometrics = async (isActive: boolean) => {
         const userUpdate = {...user, isBiometricActive: isActive}
         setItem(signedUser, userUpdate)
+      }
+
+      const biometryType = await rnBiometrics.isSensorAvailable()
+      if (!biometryType.available) {
+        show('Biometria não disponível', 'error')
+        setIsBiometricsActive(false)
+        return await updateBiometrics(false)
       }
 
       if (newBiometricsState) {
@@ -63,27 +65,28 @@ export function Settings() {
   }, [isBiometricsActive, show, signedUser, user])
 
   return (
-    <PageContent>
+    <PageContent testID="settings.page">
       <S.Container>
         <PageHeader title="Configurações" />
-        <S.Box>
+        <S.Box testID="settings.theme">
           <Typography semibold color={theme.colors.placeholder}>
             Modo escuro
           </Typography>
-          <Switch value={isDarkMode} onValueChange={toggleTheme} />
+          <Switch testID={`${isDarkMode ? 'theme.switch.dark' : 'theme.switch.light'}`} value={isDarkMode} onValueChange={toggleTheme} />
         </S.Box>
-        <S.Box>
+        <S.Box testID="settings.biometric">
           <Typography semibold color={theme.colors.placeholder}>
             Login com biometria
           </Typography>
           <Switch
+            testID={isBiometricsActive ? 'biometric.switch.active' : 'biometric.switch.inactive'}
             value={isBiometricsActive}
             onValueChange={handleToggleBiometric}
           />
         </S.Box>
       </S.Container>
       <S.Box>
-        <Button label="Sair" variant="danger" onPress={signOut} />
+        <Button testID="signout.button" label="Sair" variant="danger" onPress={signOut} />
       </S.Box>
     </PageContent>
   )

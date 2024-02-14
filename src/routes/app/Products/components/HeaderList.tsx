@@ -18,6 +18,7 @@ export function HeaderList() {
         </Typography>
       </S.HelloBox>
       <S.SettingsButton
+        testID="settings-button"
         onPress={() => navigation.navigate('settings')}
         activeOpacity={0.8}>
         <Icon
