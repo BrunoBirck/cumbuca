@@ -27,8 +27,8 @@ import settingsDark from '@assets/dark/settings.png'
 import signoutDark from '@assets/dark/signout.png'
 import trashDark from '@assets/dark/trash.png'
 import warningDark from '@assets/dark/warning.png'
-import logoDark from '@assets/light/logo.png'
-import boxDark from '@assets/light/ic_box.png'
+import logoDark from '@assets/dark/logo.png'
+import boxDark from '@assets/dark/ic_box.png'
 
 import {IIconProps} from './types'
 

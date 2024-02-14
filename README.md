@@ -54,7 +54,7 @@ O layout da aplicação está disponível no Figma:
 
 ## 🚀 Como executar o projeto
 
-Para executar o projeto você pode fazer o clone do projeto e rodar localmente ou se quiser, recomendo fortemente solicitar o acesso ao app para devices físicos, pois o mesmo foi gerado apk para android e versão de teste no apple testflight. Caso queira o apk para android basta [acessar o link](https://drive.google.com/file/d/181tegKE-bGR8ZuNs5z_71Khz8bg_DQXI/view?usp=sharing) e baixar, já para o iOS pode solicitar enviando um e-mail para bfbirck@gmail.com com nome, e-mail do icloud para teste e número de telefone.
+Para executar o projeto você pode fazer o clone do projeto e rodar localmente ou se quiser, recomendo fortemente solicitar o acesso ao app para devices físicos, pois o mesmo foi gerado apk para android e versão de teste no apple testflight. Caso queira o apk para android basta [acessar o link](https://drive.google.com/file/d/1sclWhw0xtnx73zy2V9QX5UAJeovv9B66/view?usp=sharing) e baixar, já para o iOS pode solicitar enviando um e-mail para bfbirck@gmail.com com nome, e-mail do icloud para teste e número de telefone.
 
 ### Pré-requisitos
 
