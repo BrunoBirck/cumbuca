@@ -72,51 +72,51 @@ export function ProductPut() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={{flex: 1}}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-    <PageContent testID="product-put.page">
-        <S.ProductPutContainer>
-          <S.Box>
-            <PageHeader title="Novo produto" />
-            <Typography>
-              Para adicionar um novo produto é só preencher os campos abaixo.
-            </Typography>
-            <S.FormWrapper>
-              <ControlledInput
-                control={control}
-                name="name"
-                label="Nome"
-                errors={errors.name}
-                testID="product-put.name.input"
-              />
-              <ControlledInput
-                control={control}
-                name="quantity"
-                label="Estoque"
-                errors={errors.quantity}
-                keyboardType="number-pad"
-                testID="product-put.quantity.input"
-              />
-              <ControlledInput
-                control={control}
-                name="unityPrice"
-                label="Valor unitário (R$)"
-                errors={errors.unityPrice}
-                keyboardType="decimal-pad"
-                maskFunction={replaceCommaWithDot}
-                testID="product-put.unity-price.input"
-              />
-            </S.FormWrapper>
-          </S.Box>
-        </S.ProductPutContainer>
-      <S.Footer testID="footer">
-        <Button
-          label="Cadastrar"
-          icon="plus"
-          testID="product-put.submit.button"
-          onPress={handleSubmit(onSubmit)}
-        />
-      </S.Footer>
-    </PageContent>
-    </ScrollView>
+        <PageContent testID="product-put.page">
+          <S.ProductPutContainer>
+            <S.Box>
+              <PageHeader title="Novo produto" />
+              <Typography>
+                Para adicionar um novo produto é só preencher os campos abaixo.
+              </Typography>
+              <S.FormWrapper>
+                <ControlledInput
+                  control={control}
+                  name="name"
+                  label="Nome"
+                  errors={errors.name}
+                  testID="product-put.name.input"
+                />
+                <ControlledInput
+                  control={control}
+                  name="quantity"
+                  label="Estoque"
+                  errors={errors.quantity}
+                  keyboardType="number-pad"
+                  testID="product-put.quantity.input"
+                />
+                <ControlledInput
+                  control={control}
+                  name="unityPrice"
+                  label="Valor unitário (R$)"
+                  errors={errors.unityPrice}
+                  keyboardType="decimal-pad"
+                  maskFunction={replaceCommaWithDot}
+                  testID="product-put.unity-price.input"
+                />
+              </S.FormWrapper>
+            </S.Box>
+          </S.ProductPutContainer>
+          <S.Footer testID="footer">
+            <Button
+              label="Cadastrar"
+              icon="plus"
+              testID="product-put.submit.button"
+              onPress={handleSubmit(onSubmit)}
+            />
+          </S.Footer>
+        </PageContent>
+      </ScrollView>
     </KeyboardAvoidingView>
   )
 }
