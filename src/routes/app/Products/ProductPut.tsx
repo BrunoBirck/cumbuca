@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {Keyboard, Pressable} from 'react-native'
+import {Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView} from 'react-native'
 import {NavigationProp, useNavigation} from '@react-navigation/native'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {useForm} from 'react-hook-form'
@@ -63,9 +63,16 @@ export function ProductPut() {
     },
     [navigation, show],
   )
+
+  function replaceCommaWithDot(input: string): string {
+    return input.replace(/,/g, '.');
+  }
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex: 1}}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
     <PageContent testID="product-put.page">
-      <Pressable onPress={Keyboard.dismiss} style={{flex: 1, width: '100%'}}>
         <S.ProductPutContainer>
           <S.Box>
             <PageHeader title="Novo produto" />
@@ -93,13 +100,13 @@ export function ProductPut() {
                 name="unityPrice"
                 label="Valor unitário (R$)"
                 errors={errors.unityPrice}
-                keyboardType="number-pad"
+                keyboardType="decimal-pad"
+                maskFunction={replaceCommaWithDot}
                 testID="product-put.unity-price.input"
               />
             </S.FormWrapper>
           </S.Box>
         </S.ProductPutContainer>
-      </Pressable>
       <S.Footer testID="footer">
         <Button
           label="Cadastrar"
@@ -109,5 +116,7 @@ export function ProductPut() {
         />
       </S.Footer>
     </PageContent>
+    </ScrollView>
+    </KeyboardAvoidingView>
   )
 }

@@ -4,6 +4,7 @@ export const Container = styled.View`
   width: 100%;
   align-items: center;
   flex-direction: row;
+  flex: 1;
 `
 
 export const Box = styled.View`
@@ -21,6 +22,12 @@ export const TrashBox = styled.View`
   justify-content: center;
   align-items: center;
   padding-right: ${({theme}) => theme.spacers['sm-3']};
+`
+
+export const TrashButton = styled.TouchableOpacity`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Column = styled.View``

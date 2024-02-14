@@ -1,5 +1,5 @@
 import React from 'react'
-import {Pressable, TouchableOpacity} from 'react-native'
+import {Pressable} from 'react-native'
 import {useTheme} from 'styled-components/native'
 import {Card} from '@components/Card'
 import {Icon} from '@components/Icon'
@@ -98,7 +98,7 @@ export function ProductCard({
           </S.Column>
         </S.Box>
         <S.TrashBox>
-          <TouchableOpacity
+          <S.TrashButton
             activeOpacity={0.8}
             testID={`${testID}.delete.button`}
             onPress={() => removeProduct(product.id)}>
@@ -107,7 +107,7 @@ export function ProductCard({
               width={theme.spacersRaw['md-3']}
               height={theme.spacersRaw['md-3']}
             />
-          </TouchableOpacity>
+          </S.TrashButton>
         </S.TrashBox>
       </S.Container>
     </Card>

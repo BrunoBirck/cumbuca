@@ -4,6 +4,7 @@ import {Badge} from '@components/Badge'
 import {Input} from '@components/Input'
 import Typography from '@components/Typography'
 import * as S from '../styles'
+import { Keyboard } from 'react-native'
 
 export interface IFilterProps {
   search?: string
@@ -26,6 +27,8 @@ export function Filters({
         value={search}
         onChangeText={setSearch}
         testID="product-list.search.input"
+        onSubmitEditing={Keyboard.dismiss}
+        onEndEditing={Keyboard.dismiss}
       />
       <S.Box>
         <Typography semibold color={theme.colors.placeholder}>

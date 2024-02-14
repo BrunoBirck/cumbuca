@@ -19,7 +19,7 @@ export function ProductList() {
   const listRef = React.useRef<FlatList<string>>(null)
   const navigation = useNavigation<NavigationProp<AppStack>>()
   const productsFromStorage = productsByUser()
-
+  
   const [orderBy, setOrderBy] = React.useState<string>('')
   const [search, setSearch] = React.useState<string | undefined>(undefined)
   const [products, setProducts] =

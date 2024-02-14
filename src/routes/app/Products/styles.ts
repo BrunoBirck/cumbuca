@@ -72,5 +72,6 @@ export const ProductPutContainer = styled(HelloBox)`
 
 export const Footer = styled(HelloBox)`
   width: 100%;
+  padding-top: ${({theme}) => theme.spacers['md-3']};
   padding-bottom: ${({theme}) => theme.spacers['md-3']};
 `
